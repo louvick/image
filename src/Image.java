@@ -4,20 +4,20 @@ public class Image extends ImageManager{
     private int sizeX;
     private int sizeY;
     private int max;
-
-    private int image[][];
+    private String type;
+    private pixel tbl_pixels[][];
 
     public Image() {};
-    public void lire(String image) {
+   /* public void lire(String image) {
         try {
             FileReader lecture = new FileReader(image);
 
             Scanner sc = new Scanner(lecture);
 
             sc.useDelimiter(" ");
-            this.sizeX = sc.nextInt();
-            this.sizeY = sc.nextInt();
-            this.max = sc.nextInt();
+            image.setsizeX = sc.nextInt();
+            image.setsizeY = sc.nextInt();
+            image.setmax = sc.nextInt();
             this.image = new int[sizeX + 1][sizeY + 1];
             for (int i = 0; i < sizeY; i++) {
                 for (int j = 0; i < sizeX; i++) {
@@ -29,7 +29,7 @@ public class Image extends ImageManager{
         } catch (java.io.IOException exception) {
             System.out.println(exception.getMessage());
         }
-    }
+    }*/
 
     public int getSizeX() {
         return sizeX;
@@ -54,17 +54,25 @@ public class Image extends ImageManager{
     public void setMax(int max) {
         this.max = max;
     }
-
-    public int[][] getArray() {
-        return image;
+    public String getType() {
+        return type;
     }
 
-    public void setArray(int[][] array, int sizeX, int SizeY) {
-        this.image = new int[sizeX+1][SizeY+1];
-        for(int i=0; i<sizeY; i++) {
-            for(int j=0; j<sizeX; j++) {
-                this.image[i][j] = array[i][j];
-            }
-        }
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public pixel[][] getPixelsGray() {
+        return tbl_pixels;
+    }
+    public void setPixelsGray(int black) {
+        pixel.setBlack(black);
+    }
+
+    public pixel[][] getPixelsRGB() {
+        return tbl_pixels;
+    }
+    public void setPixelsRGB(int red, int green, int blue) {
+        pixel.setColor(red,green,blue);
     }
 }
