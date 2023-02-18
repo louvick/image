@@ -4,6 +4,12 @@ public class PixelPPM {
     private int green;
     private int blue;
 
+    public PixelPPM(int red,int green,int blue) {
+        this.red=red;
+        this.green=green;
+        this.blue=blue;
+    }
+
     public int getRed() {
         return red;
     }
