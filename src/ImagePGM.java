@@ -18,14 +18,17 @@ public class ImagePGM extends Image{
             Scanner sc = new Scanner(lecture);
 
             sc.useDelimiter(" ");
+            System.out.println("a");
             super.setSizeX(sc.nextInt());
             super.setSizeY(sc.nextInt());
             super.setMax(sc.nextInt());
+            System.out.println("b");
 
             this.tbl_pixels = new PixelPGM[super.getSizeX() + 1][super.getSizeY() + 1];
 
             for (int i = 0; i < Math.floor(super.getSizeY()); i++) {
                 for (int j = 0; i < Math.floor(super.getSizeX()); i++) {
+                    System.out.println(Integer.toString(i)+' '+Integer.toString(j));
                     this.tbl_pixels[i][j] = new PixelPGM(sc.nextInt());
                 }
             }
