@@ -28,10 +28,9 @@ public class PixelPPM {
         this.blue = blue;
     }
 
-    public void setColor(int rred, int ggreen, int bblue){
-
-        setRed(rred);
-        setGreen(ggreen);
-        setBlue(bblue);
+    public void setColor(int red, int green, int blue){
+        setRed(red);
+        setGreen(green);
+        setBlue(blue);
     }
 }

@@ -3,12 +3,11 @@ public class PixelPGM {
     private int pixel;
 
     PixelPGM(){
-
         pixel = 0;
     }
-    PixelPGM(int ppixel){
+    PixelPGM(int pixel){
 
-        pixel = ppixel;
+        pixel = pixel;
     }
 
     public int getPixel(){
@@ -16,7 +15,7 @@ public class PixelPGM {
         return this.pixel;
     }
 
-    public int setPixel(int ppixel){
+    public int setPixel(int pixel){
 
         return this.pixel;
     }
