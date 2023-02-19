@@ -1,4 +1,6 @@
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.PrintWriter;
 import java.util.Scanner;
 
 public class ImagePGM extends Image{
@@ -35,6 +37,34 @@ public class ImagePGM extends Image{
         } catch (java.io.FileNotFoundException exception) {
             System.out.println(exception.getMessage());
         }
+    }
+
+    public void ecrire(String fichier, ImagePGM image) throws FileNotFoundException {
+
+        PrintWriter wr = new PrintWriter(fichier);
+
+        //try{
+
+        PixelPGM tbl[][] = image.getPixels();
+
+        wr.println(image.getType());
+        wr.print(image.getSizeX());
+        wr.print(" ");
+        wr.println(image.getSizeY());
+        wr.println(image.getMax());
+
+        for(int i = 0; i < image.getSizeX(); i++){
+
+            for(int j = 0; j < image.getSizeY(); j++){
+
+                wr.print(tbl[i][j].getPixel());
+            }
+        }
+        //} catch (java.io.FileNotFoundException exception) {
+        //    System.out.println(exception.getMessage());
+        //}
+
+        wr.close();
     }
 }
 
