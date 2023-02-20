@@ -96,13 +96,15 @@ public class ImagePPM extends Image
      *
      */
     public void pivoter90() {
-        PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeX()][super.getSizeY()];
+        PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeY()][super.getSizeX()];
 
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
-                rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
+                rotatedPixels[i][j] = tbl_pixels[super.getSizeX()-j-1][i];
             }
         }
+        this.create(super.getSizeY(),super.getSizeX(),255);
+        this.tbl_pixels = rotatedPixels.clone();
     }
 
     /**

@@ -151,11 +151,12 @@ public class ImagePGM extends Image{
         wr.println(this.getSizeY());
         wr.println(this.getMax());
 
-        for(int i = 0; i < this.getSizeX(); i++){
+        for(int i = 0; i < this.getSizeY(); i++){
 
-            for(int j = 0; j < this.getSizeY(); j++){
+            for(int j = 0; j < this.getSizeX(); j++){
 
-                wr.print(tbl[i][j].getPixel());
+                wr.print(tbl[j][i].getPixel());
+                wr.print(" ");
             }
         }
         //} catch (java.io.FileNotFoundException exception) {
@@ -175,13 +176,16 @@ public class ImagePGM extends Image{
      *
      */
     public void pivoter90() {
-        PixelPGM[][] rotatedPixels = new PixelPGM[super.getSizeX()][super.getSizeY()];
+        PixelPGM[][] rotatedPixels = new PixelPGM[super.getSizeY()][super.getSizeX()];
 
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
-                rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
+                rotatedPixels[i][j] = tbl_pixels[super.getSizeX()-j-1][i];
             }
         }
+        this.create(super.getSizeY(),super.getSizeX(),255);
+        this.tbl_pixels = rotatedPixels.clone();
+
     }
 
     /**
