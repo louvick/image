@@ -68,8 +68,8 @@ public class ImagePGM extends Image{
         for(int i = 0; i < this.getSizeX(); i++){
 
             for(int j = 0; j < this.getSizeY(); j++){
-
                 wr.print(tbl[i][j].getPixel());
+                wr.print(" ");
             }
         }
         //} catch (java.io.FileNotFoundException exception) {

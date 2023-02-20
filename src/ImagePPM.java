@@ -100,7 +100,7 @@ public class ImagePPM extends Image
 
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
-                rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
+                System.out.println(i+j);
             }
         }
     }
@@ -164,10 +164,12 @@ public class ImagePPM extends Image
             for(int i = 0; i < this.getSizeX(); i++){
 
                 for(int j = 0; j < this.getSizeY(); j++){
-
                     wr.print(tbl[i][j].getRed());
+                    wr.print(" ");
                     wr.print(tbl[i][j].getGreen());
+                    wr.print(" ");
                     wr.print(tbl[i][j].getBlue());
+                    wr.print(" ");
                 }
             }
         //} catch (java.io.FileNotFoundException exception) {
