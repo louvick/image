@@ -51,23 +51,23 @@ public class ImagePGM extends Image{
         }
     }
 
-    public void ecrire(String fichier, ImagePGM image) throws FileNotFoundException {
+    public void ecrire(String fichier) throws FileNotFoundException {
 
         PrintWriter wr = new PrintWriter(fichier);
 
         //try{
 
-        PixelPGM tbl[][] = image.getPixels();
+        PixelPGM tbl[][] = this.getPixels();
 
-        wr.println(image.getType());
-        wr.print(image.getSizeX());
+        wr.println(this.getType());
+        wr.print(this.getSizeX());
         wr.print(" ");
-        wr.println(image.getSizeY());
-        wr.println(image.getMax());
+        wr.println(this.getSizeY());
+        wr.println(this.getMax());
 
-        for(int i = 0; i < image.getSizeX(); i++){
+        for(int i = 0; i < this.getSizeX(); i++){
 
-            for(int j = 0; j < image.getSizeY(); j++){
+            for(int j = 0; j < this.getSizeY(); j++){
 
                 wr.print(tbl[i][j].getPixel());
             }

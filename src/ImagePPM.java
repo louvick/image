@@ -145,23 +145,23 @@ public class ImagePPM extends Image
      * @Date 20 février 2023
      *
      */
-    public void ecrire(String fichier, ImagePPM image) throws FileNotFoundException {
+    public void ecrire(String fichier) throws FileNotFoundException {
 
         PrintWriter wr = new PrintWriter(fichier);
 
         //try{
 
-            PixelPPM tbl[][] = image.getPixels();
+            PixelPPM tbl[][] = this.getPixels();
 
-            wr.println(image.getType());
-            wr.print(image.getSizeX());
+            wr.println(this.getType());
+            wr.print(this.getSizeX());
             wr.print(" ");
-            wr.println(image.getSizeY());
-            wr.println(image.getMax());
+            wr.println(this.getSizeY());
+            wr.println(this.getMax());
 
-            for(int i = 0; i < image.getSizeX(); i++){
+            for(int i = 0; i < this.getSizeX(); i++){
 
-                for(int j = 0; j < image.getSizeY(); j++){
+                for(int j = 0; j < this.getSizeY(); j++){
 
                     wr.print(tbl[i][j].getRed());
                     wr.print(tbl[i][j].getGreen());

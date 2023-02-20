@@ -60,4 +60,23 @@ public class ImageManager {
 
         return false;
     }
+
+    public void ecrire(String fichier, Image image) {
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            try {
+                pgmImage.ecrire(fichier);
+            }  catch (java.io.FileNotFoundException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            try {
+                ppmImage.ecrire(fichier);
+            }  catch (java.io.FileNotFoundException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
 }
