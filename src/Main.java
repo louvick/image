@@ -2,15 +2,15 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
+        String chemin = "image1.ppm";
         ImageManager im = new ImageManager();
         ImagePGM imagegrise = new ImagePGM();
         ImagePPM imagecouleur = new ImagePPM();
-        String chemin2= "image1.ppm";
-        String chemin = "image1.pgm";
-        imagecouleur.lire(chemin2);
-        imagecouleur.pivoter90();
-        im.ecrire("image1.ppm",imagecouleur);
 
-        imagegrise.lire(chemin);
+        im.lire(imagegrise,chemin);
+        im.extraire(imagegrise, 30,30,300,300);
+
+        im.ecrire(chemin, imagegrise);
+
     }
 }

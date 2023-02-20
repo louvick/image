@@ -33,29 +33,17 @@ public class ImageManager {
         }
     }
 
-    public void eclaircir_noircir(Image image, int valeur){
-
-        if(image instanceof ImagePGM){
-            ImagePGM pgmImage = (ImagePGM) image;
-            pgmImage.eclaircir_noircir(pgmImage,valeur);
-        }
-        else if(image instanceof ImagePPM){
-            ImagePPM ppmImage = (ImagePPM) image;
-            ppmImage.eclaircir_noircir(ppmImage, valeur);
-        }
-    }
-
     public boolean sont_identiques(Image image1, Image image2){
 
-        if(image1 instanceof ImagePGM && image2 instanceof ImagePPM){
+        if(image1 instanceof ImagePGM && image2 instanceof ImagePGM){
             ImagePGM pgmImage1 = (ImagePGM) image1;
             ImagePGM pgmImage2 = (ImagePGM) image2;
-            return sont_identiques(pgmImage1,pgmImage2);
+            return pgmImage2.sont_identiques(pgmImage1);
         }
         else if(image1 instanceof ImagePPM && image2 instanceof ImagePPM){
             ImagePPM ppmImage1 = (ImagePPM) image1;
             ImagePPM ppmImage2 = (ImagePPM) image2;
-            return sont_identiques(ppmImage1, ppmImage2);
+            return ppmImage2.sont_identiques(ppmImage1);
         }
 
         return false;
@@ -77,6 +65,28 @@ public class ImageManager {
             }  catch (java.io.FileNotFoundException exception) {
                 System.out.println(exception.getMessage());
             }
+        }
+    }
+
+    public void eclaircir_noircir(Image image, int valeur) {
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            ((ImagePGM) image).eclaircir_noircir(valeur);
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            ((ImagePPM) image).eclaircir_noircir(valeur);
+        }
+    }
+
+    public void extraire(Image image, int x1, int y1, int x2, int y2) {
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            ((ImagePGM) image).extraire(x1, y1, x2, y2);
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            ((ImagePPM) image).extraire(x1, y1, x2, y2);
         }
     }
 }

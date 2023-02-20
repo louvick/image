@@ -91,7 +91,7 @@ public class ImagePPM extends Image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param null
+     * @param
      * @return void
      *
      */
@@ -149,34 +149,39 @@ public class ImagePPM extends Image
 
         PrintWriter wr = new PrintWriter(fichier);
 
-        //try{
+        PixelPPM tbl[][] = this.getPixels();
 
-            PixelPPM tbl[][] = this.getPixels();
+        wr.println(this.getType());
+        wr.print(this.getSizeX());
+        wr.print(" ");
+        wr.println(this.getSizeY());
+        wr.println(this.getMax());
 
-            wr.println(this.getType());
-            wr.print(this.getSizeX());
-            wr.print(" ");
-            wr.println(this.getSizeY());
-            wr.println(this.getMax());
+        for(int i = 0; i < this.getSizeY(); i++){
 
-            for(int i = 0; i < this.getSizeX(); i++){
-
-                for(int j = 0; j < this.getSizeY(); j++){
-
-                    wr.print(tbl[i][j].getRed());
-                    wr.print(tbl[i][j].getGreen());
-                    wr.print(tbl[i][j].getBlue());
-                }
+            for(int j = 0; j < this.getSizeX(); j++){
+                wr.print(tbl[j][i].getRed());
+                wr.print(" ");
+                wr.print(tbl[j][i].getGreen());
+                wr.print(" ");
+                wr.print(tbl[j][i].getBlue());
+                wr.print(" ");
             }
-        //} catch (java.io.FileNotFoundException exception) {
-        //    System.out.println(exception.getMessage());
-        //}
+        }
 
         wr.close();
     }
 
-    //reduit une image et la retourne
-    public ImagePPM reduire(ImagePPM image) {
+    /**
+     *
+     * Cette méthode va réduire l'image originale, Elle va prendre la valeur de quatre pixel, calculer la moyenne de celles-ci
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image
+     * @return ImagePPM
+     **/
+     public ImagePPM reduire(ImagePPM image) {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePPM newImage = new ImagePPM();
@@ -203,61 +208,110 @@ public class ImagePPM extends Image
         return newImage;
     }
 
-    //extrait une sousimage d'un image
-    public ImagePPM extraire(ImagePPM image, int x1, int y1, int x2, int y2) {
+    /**
+     *
+     * Cette méthode va chercher une image à partir de deux points sur l'image
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image
+     * @param x1
+     * @param x2
+     * @param y1
+     * @param y2
+     * @return ImagePPM
+     *
+     */
+    public void extraire(int x1, int y1, int x2, int y2) {
         ImagePPM newImage = new ImagePPM();
         int newWidth = x2-x1;
         int newHeight = y2-y1;
 
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(i,j,image.getPixelAt(y1+i,x1+j).getRed(),image.getPixelAt(y1+i,x1+j).getGreen(),image.getPixelAt(y1+i,x1+j).getBlue());
+                newImage.setPixelAt(i,j,this.getPixelAt(y1+i,x1+j).getRed(),this.getPixelAt(y1+i,x1+j).getGreen(),this.getPixelAt(y1+i,x1+j).getBlue());
             }
         }
 
-        newImage.create(newWidth,newHeight,image.getMax());
+        newImage.create(newWidth,newHeight,super.getMax());
 
-        return newImage;
+        this.tbl_pixels = newImage.getPixels().clone();
+
     }
 
-    public void eclaircir_noircir(ImagePPM image, int valeur){
+    /**
+     *
+     * Cette méthode va éclaircir ou noircir la valeur selon la valeur en paramètre. Une valeur négative va éclaricir l'image, alors qu'une valeur positive va noircir l'image
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param valeur
+     * @return void
+     *
+     */
+    public void eclaircir_noircir(int valeur){
+        for(int i = 0; i < this.getSizeY(); i++){
 
-        for(int i = 0; i < image.getSizeY(); i++){
+            for(int j = 0; j < this.getSizeX(); j++){
 
-            for(int j = 0; j < image.getSizeY(); j++){
-
-                if( valeur > 0){
-                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() * (1 - valeur));
-                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() * (1 - valeur));
-                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() * (1 - valeur));
-
+                if(this.getPixels()[j][i].getRed()+valeur>=0&&this.getPixels()[j][i].getRed()+valeur<=super.getMax()){
+                    this.getPixels()[j][i].setRed(this.getPixels()[j][i].getRed() +valeur);
                 }
-                else{
+                else if(this.getPixels()[j][i].getRed()+valeur>=0) {
+                    this.getPixels()[j][i].setRed(0);
+                }
+                else if(this.getPixels()[j][i].getRed()+valeur>=super.getMax()) {
+                    this.getPixels()[j][i].setRed(super.getMax());
+                }
 
-                    valeur *= -1;
+                if(this.getPixels()[j][i].getGreen()+valeur>=0&&this.getPixels()[j][i].getGreen()+valeur<=super.getMax()){
+                    this.getPixels()[j][i].setGreen(this.getPixels()[j][i].getGreen() +valeur);
+                }
+                else if(this.getPixels()[j][i].getGreen()+valeur>=0) {
+                    this.getPixels()[j][i].setGreen(0);
+                }
+                else if(this.getPixels()[j][i].getGreen()+valeur>=super.getMax()) {
+                    this.getPixels()[j][i].setGreen(super.getMax());
+                }
 
-                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() + (255 - image.getPixels()[i][j].getRed()) * valeur);
-                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() + (255 - image.getPixels()[i][j].getGreen()) * valeur);
-                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() + (255 - image.getPixels()[i][j].getBlue()) * valeur);
-
+                if(this.getPixels()[j][i].getBlue()+valeur>=0&&this.getPixels()[j][i].getBlue()+valeur<=super.getMax()){
+                    this.getPixels()[j][i].setBlue(this.getPixels()[j][i].getBlue() +valeur);
+                }
+                else if(this.getPixels()[j][i].getBlue()+valeur>=0) {
+                    this.getPixels()[j][i].setBlue(0);
+                }
+                else if(this.getPixels()[j][i].getBlue()+valeur>=super.getMax()) {
+                    this.getPixels()[j][i].setBlue(super.getMax());
                 }
 
             }
         }
     }
 
-    public boolean sont_identiques(ImagePPM image1, ImagePPM image2){
+    /**
+     *
+     * Cette méthode va comparer les valeurs de deux images en paramètre. Si elles sont identiques, le retour est true, sinon, elle est fausse
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image1
+     * @return boolean
+     *
+     */
+    public boolean sont_identiques(ImagePPM image1){
 
-        if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
+        boolean ver = false;
+
+        if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
 
             for(int i = 0; i < image1.getSizeY(); i++){
 
                 for(int j = 0; j < image1.getSizeY(); j++){
 
-                    if(image1.getPixels()[i][j].getRed() == image2.getPixels()[i][j].getRed() &&
-                            image1.getPixels()[i][j].getGreen() == image2.getPixels()[i][j].getGreen() &&
-                            image1.getPixels()[i][j].getBlue() == image2.getPixels()[i][j].getBlue()){
-
+                    if(image1.getPixels()[i][j].getRed() == this.getPixels()[i][j].getRed() &&
+                            image1.getPixels()[i][j].getGreen() == this.getPixels()[i][j].getGreen() &&
+                            image1.getPixels()[i][j].getBlue() == this.getPixels()[i][j].getBlue()){
+                        ver = true;
                     }
                     else{
                         return false;
@@ -270,7 +324,7 @@ public class ImagePPM extends Image
             return false;
         }
 
-        return true;
+        return ver;
     }
 
 

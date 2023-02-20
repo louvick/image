@@ -221,28 +221,27 @@ public class ImagePGM extends Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param image
      * @param x1
      * @param x2
      * @param y1
      * @param y2
-     * @return ImagePGM
+     * @return void
      *
      */
-    public ImagePGM extraire(ImagePGM image, int x1, int y1, int x2, int y2) {
+    public void extraire(int x1, int y1, int x2, int y2) {
         ImagePGM newImage = new ImagePGM();
         int newWidth = x2-x1;
         int newHeight = y2-y1;
 
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(i,j,image.getPixelAt(y1+i,x1+j));
+                newImage.setPixelAt(i,j,this.getPixelAt(y1+i,x1+j));
             }
         }
 
-        newImage.create(newWidth,newHeight,image.getMax());
+        newImage.create(newWidth,newHeight,this.getMax());
+        this.tbl_pixels = newImage.getPixels().clone();
 
-        return newImage;
     }
 
 
@@ -252,18 +251,23 @@ public class ImagePGM extends Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param image
      * @param valeur
      * @return void
      *
      */
-    public void eclaircir_noircir(ImagePGM image, int valeur){
+    public void eclaircir_noircir(int valeur){
 
-        for(int i = 0; i < image.getSizeY(); i++){
-
-            for(int j = 0; j < image.getSizeY(); j++){
-
-                image.getPixels()[i][j].setPixel(getPixels()[i][j].getPixel() + valeur);
+        for(int i = 0; i < this.getSizeY(); i++){
+            for(int j = 0; j < this.getSizeX(); j++){
+                if(tbl_pixels[j][i].getPixel() + valeur>=0&&tbl_pixels[j][i].getPixel() + valeur<=super.getMax()) {
+                    this.tbl_pixels[j][i].setPixel(tbl_pixels[j][i].getPixel() + valeur);
+                }
+                else if(tbl_pixels[j][i].getPixel() + valeur<=0){
+                    this.tbl_pixels[j][i].setPixel(0);
+                }
+                else if(tbl_pixels[j][i].getPixel() + valeur>=super.getMax()) {
+                    this.tbl_pixels[j][i].setPixel(super.getMax());
+                }
             }
         }
     }
@@ -276,19 +280,20 @@ public class ImagePGM extends Image{
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
      * @param image1
-     * @param image2
      * @return boolean
      *
      */
-    public boolean sont_identiques(ImagePGM image1, ImagePGM image2){
+    public boolean sont_identiques(ImagePGM image1){
 
-        if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
+
+
+        if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
 
             for(int i = 0; i < image1.getSizeY(); i++){
 
                 for(int j = 0; j < image1.getSizeY(); j++){
 
-                    if(image1.getPixels()[i][j].getPixel() == image2.getPixels()[i][j].getPixel()){
+                    if(image1.getPixels()[i][j].getPixel() == this.getPixels()[i][j].getPixel()){
 
                     }
                     else{
