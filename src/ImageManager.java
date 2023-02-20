@@ -78,4 +78,15 @@ public class ImageManager {
             ((ImagePPM) image).eclaircir_noircir(valeur);
         }
     }
+
+    public void extraire(Image image, int x1, int y1, int x2, int y2) {
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            ((ImagePGM) image).extraire(x1, y1, x2, y2);
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            ((ImagePPM) image).extraire(x1, y1, x2, y2);
+        }
+    }
 }

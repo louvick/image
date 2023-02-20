@@ -3,17 +3,58 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ *
+ * Cette classe agit comme une extension de la classe mère Image
+ * Elle va gérer les images de type PGM (donc les images avec des pixels à une seule valeur)
+ *
+ * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+ * @Date 20 février 2023
+ *
+ */
 public class ImagePGM extends Image{
     private PixelPGM tbl_pixels[][];
 
+    /**
+     *
+     * Cette méthode retourne un tableau avec tous les pixels d'une image
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param tbl_pixels
+     * @return PixelPGM[][]
+     *
+     */
     public PixelPGM[][] getPixels() {
         return this.tbl_pixels;
     }
 
+    /**
+     *
+     * Cette méthode set dans une image, tous les pixels à partir d'un tableau de pixels
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param tbl_pixels
+     * @return void
+     *
+     */
     public void setPixels(ImagePGM image) {
         this.tbl_pixels = image.getPixels().clone();
     }
 
+    /**
+     *
+     * Cette méthode créer une image de type PGM
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param sizeY
+     * @param sizeX
+     * @param max
+     * @return void
+     *
+     */
     public void create(int sizeX, int sizeY, int max) {
         super.setSizeX(sizeX);
         super.setSizeY(sizeY);
@@ -21,14 +62,47 @@ public class ImagePGM extends Image{
         super.setType("P2");
     }
 
+    /**
+     *
+     * Cette méthode set un la valeur d'un pixel déterminer en x et en y à partir d'un tableau de pixels
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param x
+     * @param y
+     * @param value
+     * @return void
+     *
+     */
     public void setPixelAt(int x, int y, int value) {
         tbl_pixels[y][x].setPixel(value);
     }
 
+    /**
+     *
+     * Cette méthode retourne la valeur d'un pixel déterminer en x et en y à partir d'un tableau de pixels
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param x
+     * @param y
+     * @return int
+     *
+     */
     public int getPixelAt(int x, int y) {
         return tbl_pixels[y][x].getPixel();
     }
 
+    /**
+     *
+     * Cette méthode permet de lire une image dans un fichier
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param fichier
+     * @return void
+     *
+     */
     public void lire(String fichier) {
         try {
             FileReader lecture = new FileReader(fichier);
@@ -51,6 +125,18 @@ public class ImagePGM extends Image{
         }
     }
 
+
+    /**
+     *
+     * Cette méthode permet d'écrire dans un fichier
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param fichier
+     * @exception FileNotFoundException
+     * @return void
+     *
+     */
     public void ecrire(String fichier) throws FileNotFoundException {
 
         PrintWriter wr = new PrintWriter(fichier);
@@ -65,11 +151,11 @@ public class ImagePGM extends Image{
         wr.println(this.getSizeY());
         wr.println(this.getMax());
 
-        for(int i = 0; i < this.getSizeY(); i++){
+        for(int i = 0; i < this.getSizeX(); i++){
 
-            for(int j = 0; j < this.getSizeX(); j++){
-                wr.print(tbl[j][i].getPixel());
-                wr.print(" ");
+            for(int j = 0; j < this.getSizeY(); j++){
+
+                wr.print(tbl[i][j].getPixel());
             }
         }
         //} catch (java.io.FileNotFoundException exception) {
@@ -79,19 +165,35 @@ public class ImagePGM extends Image{
         wr.close();
     }
 
+    /**
+     *
+     * Cette méthode permet de pivoter une image à 90 degré
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @return void
+     *
+     */
     public void pivoter90() {
-        PixelPGM[][] rotatedPixels = new PixelPGM[super.getSizeY()][super.getSizeX()];
+        PixelPGM[][] rotatedPixels = new PixelPGM[super.getSizeX()][super.getSizeY()];
 
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
-                rotatedPixels[i][j] = tbl_pixels[super.getSizeX()-j-1][i];
+                rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
             }
         }
-        this.create(super.getSizeY(),super.getSizeX(),255);
-        this.tbl_pixels = rotatedPixels.clone();
-
     }
 
+    /**
+     *
+     * Cette méthode permet de réduire une image par deux
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param image
+     * @return ImagePGM
+     *
+     */
     public ImagePGM reduire(ImagePGM image) {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
@@ -113,21 +215,46 @@ public class ImagePGM extends Image{
         return newImage;
     }
 
-    public ImagePGM extraire(ImagePGM image, int x1, int y1, int x2, int y2) {
+    /**
+     *
+     * Cette méthode permet d'extraire une partie de l'image et d'en faire une autre avec celle-ci
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param x1
+     * @param x2
+     * @param y1
+     * @param y2
+     * @return void
+     *
+     */
+    public void extraire(int x1, int y1, int x2, int y2) {
         ImagePGM newImage = new ImagePGM();
         int newWidth = x2-x1;
         int newHeight = y2-y1;
 
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(i,j,image.getPixelAt(y1+i,x1+j));
+                newImage.setPixelAt(i,j,this.getPixelAt(y1+i,x1+j));
             }
         }
 
-        newImage.create(newWidth,newHeight,image.getMax());
+        newImage.create(newWidth,newHeight,this.getMax());
+        this.tbl_pixels = newImage.getPixels().clone();
 
-        return newImage;
     }
+
+
+    /**
+     *
+     * Cette méthode permet d'éclaircir ou de noircir une image à partir d'une valeur
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param valeur
+     * @return void
+     *
+     */
     public void eclaircir_noircir(int valeur){
 
         for(int i = 0; i < this.getSizeY(); i++){
@@ -145,6 +272,17 @@ public class ImagePGM extends Image{
         }
     }
 
+
+    /**
+     *
+     * Cette méthode permet de vérifier si deux images sont identiques ou différentes
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param image1
+     * @return boolean
+     *
+     */
     public boolean sont_identiques(ImagePGM image1){
 
         if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
