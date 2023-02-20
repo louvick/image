@@ -9,7 +9,7 @@ public class Main {
         String chemin = "image1.pgm";
         imagecouleur.lire(chemin2);
         imagecouleur.pivoter90();
-        im.ecrire("image1.ppm",imagecouleur);
+        im.ecrire("output.ppm",imagecouleur);
 
         imagegrise.lire(chemin);
     }
