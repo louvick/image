@@ -17,8 +17,8 @@ public class ImagePPM extends Image
         super.setType("PPM");
     }
 
-    public int getPixelAt(int x, int y) {
-        return tbl_pixels[y][x].getPixel();
+    public PixelPPM getPixelAt(int x, int y) {
+        return tbl_pixels[y][x];
     }
 
     public void setPixelAt(int x, int y, int red, int green, int blue) {
@@ -115,6 +115,22 @@ public class ImagePPM extends Image
                 newImage.setPixelAt(x,y,averageRed,averageGreen,averageBlue);
             }
         }
+        return newImage;
+    }
+
+    public ImagePPM extraire(ImagePPM image, int x1, int y1, int x2, int y2) {
+        ImagePPM newImage = new ImagePPM();
+        int newWidth = x2-x1;
+        int newHeight = y2-y1;
+
+        for (int i = 0; i < newHeight; i++) {
+            for (int j = 0; j < newWidth; j++) {
+                newImage.setPixelAt(i,j,image.getPixelAt(y1+i,x1+j).getRed(),image.getPixelAt(y1+i,x1+j).getGreen(),image.getPixelAt(y1+i,x1+j).getBlue());
+            }
+        }
+
+        newImage.create(newWidth,newHeight,image.getMax());
+
         return newImage;
     }
 }

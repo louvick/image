@@ -109,5 +109,21 @@ public class ImagePGM extends Image{
         }
         return newImage;
     }
+
+    public ImagePGM extraire(ImagePGM image, int x1, int y1, int x2, int y2) {
+        ImagePGM newImage = new ImagePGM();
+        int newWidth = x2-x1;
+        int newHeight = y2-y1;
+
+        for (int i = 0; i < newHeight; i++) {
+            for (int j = 0; j < newWidth; j++) {
+                newImage.setPixelAt(i,j,image.getPixelAt(y1+i,x1+j));
+            }
+        }
+
+        newImage.create(newWidth,newHeight,image.getMax());
+
+        return newImage;
+    }
 }
 
