@@ -7,8 +7,14 @@ public class ImagePPM extends Image
 {
     private PixelPPM tbl_pixels[][];
     public PixelPPM[][] getPixels() {
-
         return this.tbl_pixels;
+    }
+
+    public void create(int sizeX, int sizeY, int max) {
+        super.setSizeX(sizeX);
+        super.setSizeY(sizeY);
+        super.setMax(max);
+        super.setType("PPM");
     }
 
     public int getPixelAt(int x, int y) {
@@ -83,5 +89,32 @@ public class ImagePPM extends Image
         //}
 
         wr.close();
+    }
+
+    public ImagePPM reduire(ImagePPM image) {
+        int newWidth = this.getSizeX() / 2;
+        int newHeight = this.getSizeY() / 2;
+        ImagePPM newImage = new ImagePPM();
+        newImage.create(newWidth, newHeight, super.getMax());
+
+        for (int y = 0; y < newHeight; y++) {
+            for (int x = 0; x < newWidth; x++) {
+                int sumRed = 0;
+                int sumGreen =0;
+                int sumBlue=0;
+                for (int j = y * 2; j < (y + 1) * 2; j++) {
+                    for (int i = x * 2; i < (x + 1) * 2; i++) {
+                        sumRed += tbl_pixels[i][j].getRed();
+                        sumGreen += tbl_pixels[i][j].getGreen();
+                        sumBlue += tbl_pixels[i][j].getBlue();
+                    }
+                }
+                int averageRed = sumRed / 4;
+                int averageGreen = sumGreen / 4;
+                int averageBlue = sumBlue / 4;
+                newImage.setPixelAt(x,y,averageRed,averageGreen,averageBlue);
+            }
+        }
+        return newImage;
     }
 }

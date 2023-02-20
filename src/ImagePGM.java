@@ -14,6 +14,13 @@ public class ImagePGM extends Image{
         this.tbl_pixels = image.getPixels().clone();
     }
 
+    public void create(int sizeX, int sizeY, int max) {
+        super.setSizeX(sizeX);
+        super.setSizeY(sizeY);
+        super.setMax(max);
+        super.setType("PGM");
+    }
+
     public void setPixelAt(int x, int y, int value) {
         tbl_pixels[y][x].setPixel(value);
     }
@@ -80,6 +87,27 @@ public class ImagePGM extends Image{
                 rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
             }
         }
+    }
+
+    public ImagePGM reduire(ImagePGM image) {
+        int newWidth = this.getSizeX() / 2;
+        int newHeight = this.getSizeY() / 2;
+        ImagePGM newImage = new ImagePGM();
+        newImage.create(newWidth, newHeight, super.getMax());
+
+        for (int y = 0; y < newHeight; y++) {
+            for (int x = 0; x < newWidth; x++) {
+                int sum = 0;
+                for (int j = y * 2; j < (y + 1) * 2; j++) {
+                    for (int i = x * 2; i < (x + 1) * 2; i++) {
+                        sum += tbl_pixels[i][j].getPixel();
+                    }
+                }
+                int average = sum / 4;
+                newImage.setPixelAt(x,y,average);
+            }
+        }
+        return newImage;
     }
 }
 

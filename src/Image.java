@@ -6,7 +6,6 @@ public class Image{
     private int max;
     private String type;
 
-    public Image() {};
     public int getSizeX() {
         return sizeX;
     }
