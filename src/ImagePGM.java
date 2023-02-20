@@ -125,5 +125,41 @@ public class ImagePGM extends Image{
 
         return newImage;
     }
+    public void eclaircir_noircir(ImagePGM image, int valeur){
+
+        for(int i = 0; i < image.getSizeY(); i++){
+
+            for(int j = 0; j < image.getSizeY(); j++){
+
+                image.getPixels()[i][j].setPixel(getPixels()[i][j].getPixel() + valeur);
+            }
+        }
+    }
+
+    public boolean sont_identiques(ImagePGM image1, ImagePGM image2){
+
+        if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
+
+            for(int i = 0; i < image1.getSizeY(); i++){
+
+                for(int j = 0; j < image1.getSizeY(); j++){
+
+                    if(image1.getPixels()[i][j].getPixel() == image2.getPixels()[i][j].getPixel()){
+
+                    }
+                    else{
+                        return false;
+                    }
+
+                }
+            }
+        }
+        else{
+            return false;
+        }
+
+        return true;
+    }
+
 }
 

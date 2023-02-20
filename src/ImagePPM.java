@@ -136,4 +136,59 @@ public class ImagePPM extends Image
 
         return newImage;
     }
+
+    public void eclaircir_noircir(ImagePPM image, int valeur){
+
+        for(int i = 0; i < image.getSizeY(); i++){
+
+            for(int j = 0; j < image.getSizeY(); j++){
+
+                if( valeur > 0){
+                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() * (1 - valeur));
+                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() * (1 - valeur));
+                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() * (1 - valeur));
+
+                }
+                else{
+
+                    valeur *= -1;
+
+                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() + (255 - image.getPixels()[i][j].getRed()) * valeur);
+                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() + (255 - image.getPixels()[i][j].getGreen()) * valeur);
+                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() + (255 - image.getPixels()[i][j].getBlue()) * valeur);
+
+                }
+
+            }
+        }
+    }
+
+    public boolean sont_identiques(ImagePPM image1, ImagePPM image2){
+
+        if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
+
+            for(int i = 0; i < image1.getSizeY(); i++){
+
+                for(int j = 0; j < image1.getSizeY(); j++){
+
+                    if(image1.getPixels()[i][j].getRed() == image2.getPixels()[i][j].getRed() &&
+                            image1.getPixels()[i][j].getGreen() == image2.getPixels()[i][j].getGreen() &&
+                            image1.getPixels()[i][j].getBlue() == image2.getPixels()[i][j].getBlue()){
+
+                    }
+                    else{
+                        return false;
+                    }
+
+                }
+            }
+        }
+        else{
+            return false;
+        }
+
+        return true;
+    }
+
+
 }

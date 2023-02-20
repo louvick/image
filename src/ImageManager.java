@@ -32,4 +32,32 @@ public class ImageManager {
             ppmImage.pivoter90();
         }
     }
+
+    public void eclaircir_noircir(Image image, int valeur){
+
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            pgmImage.eclaircir_noircir(pgmImage,valeur);
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            ppmImage.eclaircir_noircir(ppmImage, valeur);
+        }
+    }
+
+    public boolean sont_identiques(Image image1, Image image2){
+
+        if(image1 instanceof ImagePGM && image2 instanceof ImagePPM){
+            ImagePGM pgmImage1 = (ImagePGM) image1;
+            ImagePGM pgmImage2 = (ImagePGM) image2;
+            return sont_identiques(pgmImage1,pgmImage2);
+        }
+        else if(image1 instanceof ImagePPM && image2 instanceof ImagePPM){
+            ImagePPM ppmImage1 = (ImagePPM) image1;
+            ImagePPM ppmImage2 = (ImagePPM) image2;
+            return sont_identiques(ppmImage1, ppmImage2);
+        }
+
+        return false;
+    }
 }
