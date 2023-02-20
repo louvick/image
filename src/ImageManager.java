@@ -22,4 +22,14 @@ public class ImageManager {
             ppmImage.lire(fichier);
         }
     }
+
+    public void pivoter90(Image image) {
+        if(image instanceof ImagePGM) {
+            ImagePGM pgmImage = (ImagePGM) image;
+            pgmImage.pivoter90();
+        } else if(image instanceof ImagePPM) {
+            ImagePPM ppmImage = (ImagePPM) image;
+            ppmImage.pivoter90();
+        }
+    }
 }

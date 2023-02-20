@@ -14,6 +14,14 @@ public class ImagePGM extends Image{
         this.tbl_pixels = image.getPixels().clone();
     }
 
+    public void setPixelAt(int x, int y, int value) {
+        tbl_pixels[y][x].setPixel(value);
+    }
+
+    public int getPixelAt(int x, int y) {
+        return tbl_pixels[y][x].getPixel();
+    }
+
     public void lire(String fichier) {
         try {
             FileReader lecture = new FileReader(fichier);
@@ -62,6 +70,16 @@ public class ImagePGM extends Image{
         //}
 
         wr.close();
+    }
+
+    public void pivoter90() {
+        PixelPGM[][] rotatedPixels = new PixelPGM[super.getSizeX()][super.getSizeY()];
+
+        for (int i = 0; i <= super.getSizeY(); i++) {
+            for (int j = 0; j <= super.getSizeX(); j++) {
+                rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
+            }
+        }
     }
 }
 

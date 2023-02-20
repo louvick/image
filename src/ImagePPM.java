@@ -11,8 +11,26 @@ public class ImagePPM extends Image
         return this.tbl_pixels;
     }
 
+    public int getPixelAt(int x, int y) {
+        return tbl_pixels[y][x].getPixel();
+    }
+
+    public void setPixelAt(int x, int y, int red, int green, int blue) {
+        tbl_pixels[y][x].setColor(red,green,blue);
+    }
+
     public void setPixels(ImagePPM image) {
         this.tbl_pixels = image.getPixels().clone();
+    }
+
+    public void pivoter90() {
+        PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeX()][super.getSizeY()];
+
+        for (int i = 0; i < super.getSizeY(); i++) {
+            for (int j = 0; j < super.getSizeX(); j++) {
+                rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
+            }
+        }
     }
 
     public void lire(String fichier) {

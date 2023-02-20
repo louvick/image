@@ -15,6 +15,8 @@ public class PixelPGM {
         return this.pixel;
     }
 
+
+
     public int setPixel(int pixel){
 
         return this.pixel;
