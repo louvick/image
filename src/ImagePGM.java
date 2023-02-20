@@ -177,8 +177,8 @@ public class ImagePGM extends Image{
     public void pivoter90() {
         PixelPGM[][] rotatedPixels = new PixelPGM[super.getSizeX()][super.getSizeY()];
 
-        for (int i = 0; i <= super.getSizeY(); i++) {
-            for (int j = 0; j <= super.getSizeX(); j++) {
+        for (int i = 0; i < super.getSizeY(); i++) {
+            for (int j = 0; j < super.getSizeX(); j++) {
                 rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
             }
         }
