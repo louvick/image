@@ -298,22 +298,23 @@ public class ImagePPM extends Image
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février
      * @param image1
-     * @param image2
      * @return boolean
      *
      */
-    public boolean sont_identiques(ImagePPM image1, ImagePPM image2){
+    public boolean sont_identiques(ImagePPM image1){
 
-        if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
+        boolean ver = false;
+
+        if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
 
             for(int i = 0; i < image1.getSizeY(); i++){
 
                 for(int j = 0; j < image1.getSizeY(); j++){
 
-                    if(image1.getPixels()[i][j].getRed() == image2.getPixels()[i][j].getRed() &&
-                            image1.getPixels()[i][j].getGreen() == image2.getPixels()[i][j].getGreen() &&
-                            image1.getPixels()[i][j].getBlue() == image2.getPixels()[i][j].getBlue()){
-
+                    if(image1.getPixels()[i][j].getRed() == this.getPixels()[i][j].getRed() &&
+                            image1.getPixels()[i][j].getGreen() == this.getPixels()[i][j].getGreen() &&
+                            image1.getPixels()[i][j].getBlue() == this.getPixels()[i][j].getBlue()){
+                        ver = true;
                     }
                     else{
                         return false;
@@ -326,7 +327,7 @@ public class ImagePPM extends Image
             return false;
         }
 
-        return true;
+        return ver;
     }
 
 
