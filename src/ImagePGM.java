@@ -139,15 +139,17 @@ public class ImagePGM extends Image{
         }
     }
 
-    public boolean sont_identiques(ImagePGM image1, ImagePGM image2){
+    public boolean sont_identiques(ImagePGM image1){
 
-        if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
+
+
+        if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
 
             for(int i = 0; i < image1.getSizeY(); i++){
 
                 for(int j = 0; j < image1.getSizeY(); j++){
 
-                    if(image1.getPixels()[i][j].getPixel() == image2.getPixels()[i][j].getPixel()){
+                    if(image1.getPixels()[i][j].getPixel() == this.getPixels()[i][j].getPixel()){
 
                     }
                     else{

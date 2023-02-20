@@ -35,15 +35,15 @@ public class ImageManager {
 
     public boolean sont_identiques(Image image1, Image image2){
 
-        if(image1 instanceof ImagePGM && image2 instanceof ImagePPM){
+        if(image1 instanceof ImagePGM && image2 instanceof ImagePGM){
             ImagePGM pgmImage1 = (ImagePGM) image1;
             ImagePGM pgmImage2 = (ImagePGM) image2;
-            return sont_identiques(pgmImage1,pgmImage2);
+            return pgmImage2.sont_identiques(pgmImage1);
         }
         else if(image1 instanceof ImagePPM && image2 instanceof ImagePPM){
             ImagePPM ppmImage1 = (ImagePPM) image1;
             ImagePPM ppmImage2 = (ImagePPM) image2;
-            return sont_identiques(ppmImage1, ppmImage2);
+            return ppmImage2.sont_identiques(ppmImage1);
         }
 
         return false;
