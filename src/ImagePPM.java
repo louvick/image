@@ -3,6 +3,15 @@ import java.io.FileReader;
 import java.io.PrintWriter;
 import java.util.Scanner;
 
+/**
+ *
+ * Cette classe agit comme une extension de la classe mère Image
+ * Elle va gérer les images de type PPM (donc les images avec des pixels rgb)
+ *
+ * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+ * @Date 20 février 2023
+ *
+ */
 public class ImagePPM extends Image
 {
     private PixelPPM tbl_pixels[][];
@@ -10,6 +19,18 @@ public class ImagePPM extends Image
         return this.tbl_pixels;
     }
 
+    /**
+     *
+     * This method creates an empty image of PPM type
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param sizeY
+     * @param sizeX
+     * @param max
+     * @return void
+     *
+     */
     public void create(int sizeX, int sizeY, int max) {
         super.setSizeX(sizeX);
         super.setSizeY(sizeY);
@@ -17,18 +38,63 @@ public class ImagePPM extends Image
         super.setType("PPM");
     }
 
+    /**
+     *
+     * Cette méthode va chercher un pixel précis sur l'image selon des coordonnées
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param x
+     * @param y
+     * return PixelPPM
+     *
+     */
     public PixelPPM getPixelAt(int x, int y) {
         return tbl_pixels[y][x];
     }
 
+    /**
+     *
+     * Cette méthode va mettre une valeur précise à un certain point sur l'image
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param x
+     * @param y
+     * @param red
+     * @param green
+     * @param blue
+     * @return void
+     *
+     */
     public void setPixelAt(int x, int y, int red, int green, int blue) {
         tbl_pixels[y][x].setColor(red,green,blue);
     }
 
+    /**
+     *
+     * Cette méthode va mettre une valeur précise à un certain point sur l'image
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param image
+     * @return void
+     *
+     */
     public void setPixels(ImagePPM image) {
         this.tbl_pixels = image.getPixels().clone();
     }
 
+    /**
+     *
+     * Cette méthode va pivoter l'image de 90 degrées
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param null
+     * @return void
+     *
+     */
     public void pivoter90() {
         PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeX()][super.getSizeY()];
 
@@ -39,7 +105,16 @@ public class ImagePPM extends Image
         }
     }
 
-    //lecture d'un fichier
+    /**
+     *
+     * Cette méthode va ouvrir un fichier selon le nom mis en paramètre et l'insérer dans une image du même type
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     * @param fichier
+     * @return void
+     *
+     */
     public void lire(String fichier) {
         try {
             FileReader lecture = new FileReader(fichier);
@@ -62,6 +137,14 @@ public class ImagePPM extends Image
         }
     }
 
+    /**
+     *
+     * Cette méthode va ouvrir un fichier et écrire 
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février 2023
+     *
+     */
     public void ecrire(String fichier, ImagePPM image) throws FileNotFoundException {
 
         PrintWriter wr = new PrintWriter(fichier);
