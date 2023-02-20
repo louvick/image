@@ -306,13 +306,13 @@ public class ImagePPM extends Image
 
         if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
 
-            for(int i = 0; i < image1.getSizeY(); i++){
+            for(int i = 0; i < image1.getSizeX(); i++){
 
                 for(int j = 0; j < image1.getSizeY(); j++){
 
-                    if(image1.getPixels()[i][j].getRed() == this.getPixels()[i][j].getRed() &&
-                            image1.getPixels()[i][j].getGreen() == this.getPixels()[i][j].getGreen() &&
-                            image1.getPixels()[i][j].getBlue() == this.getPixels()[i][j].getBlue()){
+                    if(image1.getPixels()[j][i].getRed() == this.getPixels()[j][i].getRed() &&
+                            image1.getPixels()[j][i].getGreen() == this.getPixels()[j][i].getGreen() &&
+                            image1.getPixels()[j][i].getBlue() == this.getPixels()[j][i].getBlue()){
                         ver = true;
                     }
                     else{

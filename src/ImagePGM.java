@@ -293,9 +293,9 @@ public class ImagePGM extends Image{
 
             for(int i = 0; i < image1.getSizeY(); i++){
 
-                for(int j = 0; j < image1.getSizeY(); j++){
+                for(int j = 0; j < image1.getSizeX(); j++){
 
-                    if(image1.getPixels()[i][j].getPixel() == this.getPixels()[i][j].getPixel()){
+                    if(image1.getPixels()[j][i].getPixel() == this.getPixels()[j][i].getPixel()){
 
                     }
                     else{
