@@ -96,13 +96,15 @@ public class ImagePPM extends Image
      *
      */
     public void pivoter90() {
-        PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeX()][super.getSizeY()];
+        PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeY()][super.getSizeX()];
 
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
-                System.out.println(i+j);
+                rotatedPixels[i][j] = tbl_pixels[super.getSizeX()-j-1][i];
             }
         }
+        this.create(super.getSizeY(),super.getSizeX(),255);
+        this.tbl_pixels = rotatedPixels.clone();
     }
 
     /**
@@ -159,14 +161,14 @@ public class ImagePPM extends Image
             wr.println(this.getSizeY());
             wr.println(this.getMax());
 
-            for(int i = 0; i < this.getSizeX(); i++){
+            for(int i = 0; i < this.getSizeY(); i++){
 
-                for(int j = 0; j < this.getSizeY(); j++){
-                    wr.print(tbl[i][j].getRed());
+                for(int j = 0; j < this.getSizeX(); j++){
+                    wr.print(tbl[j][i].getRed());
                     wr.print(" ");
-                    wr.print(tbl[i][j].getGreen());
+                    wr.print(tbl[j][i].getGreen());
                     wr.print(" ");
-                    wr.print(tbl[i][j].getBlue());
+                    wr.print(tbl[j][i].getBlue());
                     wr.print(" ");
                 }
             }
