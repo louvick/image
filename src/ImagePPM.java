@@ -153,30 +153,25 @@ public class ImagePPM extends Image
 
         PrintWriter wr = new PrintWriter(fichier);
 
-        //try{
+        PixelPPM tbl[][] = this.getPixels();
 
-            PixelPPM tbl[][] = this.getPixels();
+        wr.println(this.getType());
+        wr.print(this.getSizeX());
+        wr.print(" ");
+        wr.println(this.getSizeY());
+        wr.println(this.getMax());
 
-            wr.println(this.getType());
-            wr.print(this.getSizeX());
-            wr.print(" ");
-            wr.println(this.getSizeY());
-            wr.println(this.getMax());
+        for(int i = 0; i < this.getSizeY(); i++){
 
-            for(int i = 0; i < this.getSizeY(); i++){
-
-                for(int j = 0; j < this.getSizeX(); j++){
-                    wr.print(tbl[j][i].getRed());
-                    wr.print(" ");
-                    wr.print(tbl[j][i].getGreen());
-                    wr.print(" ");
-                    wr.print(tbl[j][i].getBlue());
-                    wr.print(" ");
-                }
+            for(int j = 0; j < this.getSizeX(); j++){
+                wr.print(tbl[j][i].getRed());
+                wr.print(" ");
+                wr.print(tbl[j][i].getGreen());
+                wr.print(" ");
+                wr.print(tbl[j][i].getBlue());
+                wr.print(" ");
             }
-        //} catch (java.io.FileNotFoundException exception) {
-        //    System.out.println(exception.getMessage());
-        //}
+        }
 
         wr.close();
     }
@@ -264,22 +259,44 @@ public class ImagePPM extends Image
 
             for(int j = 0; j < image.getSizeY(); j++){
 
-                if( valeur > 0){
-                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() * (1 - valeur));
-                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() * (1 - valeur));
-                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() * (1 - valeur));
-
+                if(image.getPixels()[i][j].getRed()+valeur>=0){
+                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() +valeur);
                 }
-                else{
-
-                    valeur *= -1;
-
-                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() + (255 - image.getPixels()[i][j].getRed()) * valeur);
-                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() + (255 - image.getPixels()[i][j].getGreen()) * valeur);
-                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() + (255 - image.getPixels()[i][j].getBlue()) * valeur);
-
+                else {
+                    image.getPixels()[i][j].setRed(0);
+                }
+                if(image.getPixels()[i][j].getRed()+valeur<=super.getMax()) {
+                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() +valeur);
+                }
+                else {
+                    image.getPixels()[i][j].setRed(super.getMax());
                 }
 
+                if(image.getPixels()[i][j].getBlue()+valeur>=0){
+                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() +valeur);
+                }
+                else {
+                    image.getPixels()[i][j].setBlue(0);
+                }
+                if(image.getPixels()[i][j].getBlue()+valeur<=super.getMax()) {
+                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() +valeur);
+                }
+                else {
+                    image.getPixels()[i][j].setBlue(super.getMax());
+                }
+
+                if(image.getPixels()[i][j].getGreen()+valeur>=0){
+                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() +valeur);
+                }
+                else {
+                    image.getPixels()[i][j].setGreen(0);
+                }
+                if(image.getPixels()[i][j].getGreen()+valeur<=super.getMax()) {
+                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() +valeur);
+                }
+                else {
+                    image.getPixels()[i][j].setGreen(super.getMax());
+                }
             }
         }
     }
