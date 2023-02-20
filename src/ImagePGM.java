@@ -131,10 +131,16 @@ public class ImagePGM extends Image{
     public void eclaircir_noircir(int valeur){
 
         for(int i = 0; i < this.getSizeY(); i++){
-
-            for(int j = 0; j < this.getSizeY(); j++){
-
-                this.getPixels()[i][j].setPixel(getPixels()[i][j].getPixel() + valeur);
+            for(int j = 0; j < this.getSizeX(); j++){
+                if(tbl_pixels[j][i].getPixel() + valeur>=0&&tbl_pixels[j][i].getPixel() + valeur<=super.getMax()) {
+                    this.tbl_pixels[j][i].setPixel(tbl_pixels[j][i].getPixel() + valeur);
+                }
+                else if(tbl_pixels[j][i].getPixel() + valeur<=0){
+                    this.tbl_pixels[j][i].setPixel(0);
+                }
+                else if(tbl_pixels[j][i].getPixel() + valeur>=super.getMax()) {
+                    this.tbl_pixels[j][i].setPixel(super.getMax());
+                }
             }
         }
     }

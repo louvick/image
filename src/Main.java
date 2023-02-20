@@ -11,6 +11,7 @@ public class Main {
         String chemin = "image1.pgm";
         //imagecouleur.lire(chemin2);
         imagegrise.lire(chemin);
+        imagegrise.eclaircir_noircir(255);
         //imagecouleur.pivoter90();
         //im.ecrire("output.ppm",imagecouleur);
         im.ecrire("outputpgm.pgm",imagegrise);
