@@ -139,10 +139,12 @@ public class ImagePPM extends Image
 
     /**
      *
-     * Cette méthode va ouvrir un fichier et écrire 
+     * Cette méthode va ouvrir un fichier et écrire les valeurs de l'image ainsi que les valeurs des pixels
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
+     * @Date 20 février
+     * @param fichier
+     * @return void
      *
      */
     public void ecrire(String fichier) throws FileNotFoundException {
@@ -175,8 +177,16 @@ public class ImagePPM extends Image
         wr.close();
     }
 
-    //reduit une image et la retourne
-    public ImagePPM reduire(ImagePPM image) {
+    /**
+     *
+     * Cette méthode va réduire l'image originale, Elle va prendre la valeur de quatre pixel, calculer la moyenne de celles-ci
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image
+     * @return ImagePPM
+     *
+     */    public ImagePPM reduire(ImagePPM image) {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePPM newImage = new ImagePPM();
@@ -203,7 +213,20 @@ public class ImagePPM extends Image
         return newImage;
     }
 
-    //extrait une sousimage d'un image
+    /**
+     *
+     * Cette méthode va chercher une image à partir de deux points sur l'image
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image
+     * @param x1
+     * @param x2
+     * @param y1
+     * @param y2
+     * @return ImagePPM
+     *
+     */
     public ImagePPM extraire(ImagePPM image, int x1, int y1, int x2, int y2) {
         ImagePPM newImage = new ImagePPM();
         int newWidth = x2-x1;
@@ -220,6 +243,17 @@ public class ImagePPM extends Image
         return newImage;
     }
 
+    /**
+     *
+     * Cette méthode va éclaircir ou noircir la valeur selon la valeur en paramètre. Une valeur négative va éclaricir l'image, alors qu'une valeur positive va noircir l'image
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image
+     * @param valeur
+     * @return void
+     *
+     */
     public void eclaircir_noircir(ImagePPM image, int valeur){
 
         for(int i = 0; i < image.getSizeY(); i++){
@@ -246,6 +280,17 @@ public class ImagePPM extends Image
         }
     }
 
+    /**
+     *
+     * Cette méthode va comparer les valeurs de deux images en paramètre. Si elles sont identiques, le retour est true, sinon, elle est fausse
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image1
+     * @param image2
+     * @return boolean
+     *
+     */
     public boolean sont_identiques(ImagePPM image1, ImagePPM image2){
 
         if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
