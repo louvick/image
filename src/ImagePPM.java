@@ -96,15 +96,13 @@ public class ImagePPM extends Image
      *
      */
     public void pivoter90() {
-        PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeY()][super.getSizeX()];
+        PixelPPM[][] rotatedPixels = new PixelPPM[super.getSizeX()][super.getSizeY()];
 
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
-                rotatedPixels[i][j] = tbl_pixels[super.getSizeX()-j-1][i];
+                rotatedPixels[j][super.getSizeY()-i] = tbl_pixels[i][j];
             }
         }
-        this.create(super.getSizeY(),super.getSizeX(),255);
-        this.tbl_pixels = rotatedPixels.clone();
     }
 
     /**
@@ -141,12 +139,10 @@ public class ImagePPM extends Image
 
     /**
      *
-     * Cette méthode va ouvrir un fichier et écrire les valeurs de l'image ainsi que les valeurs des pixels
+     * Cette méthode va ouvrir un fichier et écrire 
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param fichier
-     * @return void
+     * @Date 20 février 2023
      *
      */
     public void ecrire(String fichier) throws FileNotFoundException {
@@ -163,15 +159,13 @@ public class ImagePPM extends Image
             wr.println(this.getSizeY());
             wr.println(this.getMax());
 
-            for(int i = 0; i < this.getSizeY(); i++){
+            for(int i = 0; i < this.getSizeX(); i++){
 
-                for(int j = 0; j < this.getSizeX(); j++){
-                    wr.print(tbl[j][i].getRed());
-                    wr.print(" ");
-                    wr.print(tbl[j][i].getGreen());
-                    wr.print(" ");
-                    wr.print(tbl[j][i].getBlue());
-                    wr.print(" ");
+                for(int j = 0; j < this.getSizeY(); j++){
+
+                    wr.print(tbl[i][j].getRed());
+                    wr.print(tbl[i][j].getGreen());
+                    wr.print(tbl[i][j].getBlue());
                 }
             }
         //} catch (java.io.FileNotFoundException exception) {
@@ -181,16 +175,8 @@ public class ImagePPM extends Image
         wr.close();
     }
 
-    /**
-     *
-     * Cette méthode va réduire l'image originale, Elle va prendre la valeur de quatre pixel, calculer la moyenne de celles-ci
-     *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param image
-     * @return ImagePPM
-     *
-     */    public ImagePPM reduire(ImagePPM image) {
+    //reduit une image et la retourne
+    public ImagePPM reduire(ImagePPM image) {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePPM newImage = new ImagePPM();
@@ -217,20 +203,7 @@ public class ImagePPM extends Image
         return newImage;
     }
 
-    /**
-     *
-     * Cette méthode va chercher une image à partir de deux points sur l'image
-     *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param image
-     * @param x1
-     * @param x2
-     * @param y1
-     * @param y2
-     * @return ImagePPM
-     *
-     */
+    //extrait une sousimage d'un image
     public ImagePPM extraire(ImagePPM image, int x1, int y1, int x2, int y2) {
         ImagePPM newImage = new ImagePPM();
         int newWidth = x2-x1;
@@ -247,17 +220,6 @@ public class ImagePPM extends Image
         return newImage;
     }
 
-    /**
-     *
-     * Cette méthode va éclaircir ou noircir la valeur selon la valeur en paramètre. Une valeur négative va éclaricir l'image, alors qu'une valeur positive va noircir l'image
-     *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param image
-     * @param valeur
-     * @return void
-     *
-     */
     public void eclaircir_noircir(ImagePPM image, int valeur){
 
         for(int i = 0; i < image.getSizeY(); i++){
@@ -284,17 +246,6 @@ public class ImagePPM extends Image
         }
     }
 
-    /**
-     *
-     * Cette méthode va comparer les valeurs de deux images en paramètre. Si elles sont identiques, le retour est true, sinon, elle est fausse
-     *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param image1
-     * @param image2
-     * @return boolean
-     *
-     */
     public boolean sont_identiques(ImagePPM image1, ImagePPM image2){
 
         if(image1.getType() == image2.getType() && image1.getSizeY() == image2.getSizeY() && image1.getSizeX() == image2.getSizeX() && image1.getMax() == image2.getMax()){
