@@ -253,49 +253,48 @@ public class ImagePPM extends Image
      * @return void
      *
      */
-    public void eclaircir_noircir(ImagePPM image, int valeur){
+    public void eclaircir_noircir(int valeur){
+        for(int i = 0; i < this.getSizeY(); i++){
 
-        for(int i = 0; i < image.getSizeY(); i++){
+            for(int j = 0; j < this.getSizeY(); j++){
 
-            for(int j = 0; j < image.getSizeY(); j++){
-
-                if(image.getPixels()[i][j].getRed()+valeur>=0){
-                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() +valeur);
+                if(this.getPixels()[i][j].getRed()+valeur>=0){
+                    this.getPixels()[i][j].setRed(this.getPixels()[i][j].getRed() +valeur);
                 }
                 else {
-                    image.getPixels()[i][j].setRed(0);
+                    this.getPixels()[i][j].setRed(0);
                 }
-                if(image.getPixels()[i][j].getRed()+valeur<=super.getMax()) {
-                    image.getPixels()[i][j].setRed(image.getPixels()[i][j].getRed() +valeur);
-                }
-                else {
-                    image.getPixels()[i][j].setRed(super.getMax());
-                }
-
-                if(image.getPixels()[i][j].getBlue()+valeur>=0){
-                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() +valeur);
+                if(this.getPixels()[i][j].getRed()+valeur<=super.getMax()) {
+                    this.getPixels()[i][j].setRed(this.getPixels()[i][j].getRed() +valeur);
                 }
                 else {
-                    image.getPixels()[i][j].setBlue(0);
-                }
-                if(image.getPixels()[i][j].getBlue()+valeur<=super.getMax()) {
-                    image.getPixels()[i][j].setBlue(image.getPixels()[i][j].getBlue() +valeur);
-                }
-                else {
-                    image.getPixels()[i][j].setBlue(super.getMax());
+                    this.getPixels()[i][j].setRed(super.getMax());
                 }
 
-                if(image.getPixels()[i][j].getGreen()+valeur>=0){
-                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() +valeur);
+                if(this.getPixels()[i][j].getBlue()+valeur>=0){
+                    this.getPixels()[i][j].setBlue(this.getPixels()[i][j].getBlue() +valeur);
                 }
                 else {
-                    image.getPixels()[i][j].setGreen(0);
+                    this.getPixels()[i][j].setBlue(0);
                 }
-                if(image.getPixels()[i][j].getGreen()+valeur<=super.getMax()) {
-                    image.getPixels()[i][j].setGreen(image.getPixels()[i][j].getGreen() +valeur);
+                if(this.getPixels()[i][j].getBlue()+valeur<=super.getMax()) {
+                    this.getPixels()[i][j].setBlue(this.getPixels()[i][j].getBlue() +valeur);
                 }
                 else {
-                    image.getPixels()[i][j].setGreen(super.getMax());
+                    this.getPixels()[i][j].setBlue(super.getMax());
+                }
+
+                if(this.getPixels()[i][j].getGreen()+valeur>=0){
+                    this.getPixels()[i][j].setGreen(this.getPixels()[i][j].getGreen() +valeur);
+                }
+                else {
+                    this.getPixels()[i][j].setGreen(0);
+                }
+                if(this.getPixels()[i][j].getGreen()+valeur<=super.getMax()) {
+                    this.getPixels()[i][j].setGreen(this.getPixels()[i][j].getGreen() +valeur);
+                }
+                else {
+                    this.getPixels()[i][j].setGreen(super.getMax());
                 }
             }
         }

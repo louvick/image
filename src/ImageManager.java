@@ -33,18 +33,6 @@ public class ImageManager {
         }
     }
 
-    public void eclaircir_noircir(Image image, int valeur){
-
-        if(image instanceof ImagePGM){
-            ImagePGM pgmImage = (ImagePGM) image;
-            pgmImage.eclaircir_noircir(pgmImage,valeur);
-        }
-        else if(image instanceof ImagePPM){
-            ImagePPM ppmImage = (ImagePPM) image;
-            ppmImage.eclaircir_noircir(ppmImage, valeur);
-        }
-    }
-
     public boolean sont_identiques(Image image1, Image image2){
 
         if(image1 instanceof ImagePGM && image2 instanceof ImagePPM){
@@ -77,6 +65,17 @@ public class ImageManager {
             }  catch (java.io.FileNotFoundException exception) {
                 System.out.println(exception.getMessage());
             }
+        }
+    }
+
+    public void eclaircir_noircir(Image image, int valeur) {
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            ((ImagePGM) image).eclaircir_noircir(valeur);
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            ((ImagePPM) image).eclaircir_noircir(valeur);
         }
     }
 }

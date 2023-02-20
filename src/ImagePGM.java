@@ -128,13 +128,13 @@ public class ImagePGM extends Image{
 
         return newImage;
     }
-    public void eclaircir_noircir(ImagePGM image, int valeur){
+    public void eclaircir_noircir(int valeur){
 
-        for(int i = 0; i < image.getSizeY(); i++){
+        for(int i = 0; i < this.getSizeY(); i++){
 
-            for(int j = 0; j < image.getSizeY(); j++){
+            for(int j = 0; j < this.getSizeY(); j++){
 
-                image.getPixels()[i][j].setPixel(getPixels()[i][j].getPixel() + valeur);
+                this.getPixels()[i][j].setPixel(getPixels()[i][j].getPixel() + valeur);
             }
         }
     }
