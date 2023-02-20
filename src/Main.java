@@ -7,10 +7,11 @@ public class Main {
         ImagePPM imagecouleur = new ImagePPM();
         String chemin2= "image1.ppm";
         String chemin = "image1.pgm";
-        imagecouleur.lire(chemin2);
-        imagecouleur.pivoter90();
-        im.ecrire("output.ppm",imagecouleur);
-
+        //imagecouleur.lire(chemin2);
         imagegrise.lire(chemin);
+        //imagecouleur.pivoter90();
+        //im.ecrire("output.ppm",imagecouleur);
+        im.ecrire("outputpgm.pgm",imagegrise);
+
     }
 }

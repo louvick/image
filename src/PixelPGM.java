@@ -7,7 +7,7 @@ public class PixelPGM {
     }
     PixelPGM(int pixel){
 
-        pixel = pixel;
+        this.pixel = pixel;
     }
 
     public int getPixel(){
