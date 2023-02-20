@@ -39,6 +39,7 @@ public class ImagePPM extends Image
         }
     }
 
+    //lecture d'un fichier
     public void lire(String fichier) {
         try {
             FileReader lecture = new FileReader(fichier);
@@ -91,6 +92,7 @@ public class ImagePPM extends Image
         wr.close();
     }
 
+    //reduit une image et la retourne
     public ImagePPM reduire(ImagePPM image) {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
@@ -118,6 +120,7 @@ public class ImagePPM extends Image
         return newImage;
     }
 
+    //extrait une sousimage d'un image
     public ImagePPM extraire(ImagePPM image, int x1, int y1, int x2, int y2) {
         ImagePPM newImage = new ImagePPM();
         int newWidth = x2-x1;
