@@ -226,20 +226,21 @@ public class ImagePPM extends Image
      * @return ImagePPM
      *
      */
-    public ImagePPM extraire(ImagePPM image, int x1, int y1, int x2, int y2) {
+    public void extraire(int x1, int y1, int x2, int y2) {
         ImagePPM newImage = new ImagePPM();
         int newWidth = x2-x1;
         int newHeight = y2-y1;
 
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(i,j,image.getPixelAt(y1+i,x1+j).getRed(),image.getPixelAt(y1+i,x1+j).getGreen(),image.getPixelAt(y1+i,x1+j).getBlue());
+                newImage.setPixelAt(i,j,this.getPixelAt(y1+i,x1+j).getRed(),this.getPixelAt(y1+i,x1+j).getGreen(),this.getPixelAt(y1+i,x1+j).getBlue());
             }
         }
 
-        newImage.create(newWidth,newHeight,image.getMax());
+        newImage.create(newWidth,newHeight,super.getMax());
 
-        return newImage;
+        this.tbl_pixels = newImage.getPixels().clone();
+
     }
 
     /**
