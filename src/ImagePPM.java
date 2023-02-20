@@ -184,8 +184,8 @@ public class ImagePPM extends Image
      * @Date 20 février
      * @param image
      * @return ImagePPM
-     *
-     */    public ImagePPM reduire(ImagePPM image) {
+     **/
+     public ImagePPM reduire(ImagePPM image) {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePPM newImage = new ImagePPM();
@@ -248,7 +248,6 @@ public class ImagePPM extends Image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février
-     * @param image
      * @param valeur
      * @return void
      *
@@ -258,44 +257,36 @@ public class ImagePPM extends Image
 
             for(int j = 0; j < this.getSizeY(); j++){
 
-                if(this.getPixels()[i][j].getRed()+valeur>=0){
+                if(this.getPixels()[i][j].getRed()+valeur>=0&&this.getPixels()[i][j].getRed()+valeur<=super.getMax()){
                     this.getPixels()[i][j].setRed(this.getPixels()[i][j].getRed() +valeur);
                 }
-                else {
+                else if(this.getPixels()[i][j].getRed()+valeur>=0) {
                     this.getPixels()[i][j].setRed(0);
                 }
-                if(this.getPixels()[i][j].getRed()+valeur<=super.getMax()) {
-                    this.getPixels()[i][j].setRed(this.getPixels()[i][j].getRed() +valeur);
-                }
-                else {
+                else if(this.getPixels()[i][j].getRed()+valeur>=super.getMax()) {
                     this.getPixels()[i][j].setRed(super.getMax());
                 }
 
-                if(this.getPixels()[i][j].getBlue()+valeur>=0){
+                if(this.getPixels()[i][j].getGreen()+valeur>=0&&this.getPixels()[i][j].getGreen()+valeur<=super.getMax()){
+                    this.getPixels()[i][j].setGreen(this.getPixels()[i][j].getGreen() +valeur);
+                }
+                else if(this.getPixels()[i][j].getGreen()+valeur>=0) {
+                    this.getPixels()[i][j].setGreen(0);
+                }
+                else if(this.getPixels()[i][j].getGreen()+valeur>=super.getMax()) {
+                    this.getPixels()[i][j].setGreen(super.getMax());
+                }
+
+                if(this.getPixels()[i][j].getBlue()+valeur>=0&&this.getPixels()[i][j].getBlue()+valeur<=super.getMax()){
                     this.getPixels()[i][j].setBlue(this.getPixels()[i][j].getBlue() +valeur);
                 }
-                else {
+                else if(this.getPixels()[i][j].getBlue()+valeur>=0) {
                     this.getPixels()[i][j].setBlue(0);
                 }
-                if(this.getPixels()[i][j].getBlue()+valeur<=super.getMax()) {
-                    this.getPixels()[i][j].setBlue(this.getPixels()[i][j].getBlue() +valeur);
-                }
-                else {
+                else if(this.getPixels()[i][j].getBlue()+valeur>=super.getMax()) {
                     this.getPixels()[i][j].setBlue(super.getMax());
                 }
 
-                if(this.getPixels()[i][j].getGreen()+valeur>=0){
-                    this.getPixels()[i][j].setGreen(this.getPixels()[i][j].getGreen() +valeur);
-                }
-                else {
-                    this.getPixels()[i][j].setGreen(0);
-                }
-                if(this.getPixels()[i][j].getGreen()+valeur<=super.getMax()) {
-                    this.getPixels()[i][j].setGreen(this.getPixels()[i][j].getGreen() +valeur);
-                }
-                else {
-                    this.getPixels()[i][j].setGreen(super.getMax());
-                }
             }
         }
     }
