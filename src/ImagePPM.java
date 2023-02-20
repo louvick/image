@@ -35,7 +35,7 @@ public class ImagePPM extends Image
         super.setSizeX(sizeX);
         super.setSizeY(sizeY);
         super.setMax(max);
-        super.setType("PPM");
+        super.setType("P3");
     }
 
     /**

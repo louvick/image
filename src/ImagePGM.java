@@ -18,7 +18,7 @@ public class ImagePGM extends Image{
         super.setSizeX(sizeX);
         super.setSizeY(sizeY);
         super.setMax(max);
-        super.setType("PGM");
+        super.setType("P2");
     }
 
     public void setPixelAt(int x, int y, int value) {
@@ -146,8 +146,6 @@ public class ImagePGM extends Image{
     }
 
     public boolean sont_identiques(ImagePGM image1){
-
-
 
         if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
 
