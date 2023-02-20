@@ -11,8 +11,8 @@ public class ImagePPM extends Image
         return this.tbl_pixels;
     }
 
-    public void setPixels() {
-
+    public void setPixels(ImagePPM image) {
+        this.tbl_pixels = image.getPixels().clone();
     }
 
     public void lire(String fichier) {
@@ -20,16 +20,16 @@ public class ImagePPM extends Image
             FileReader lecture = new FileReader(fichier);
             Scanner sc = new Scanner(lecture);
 
-            sc.useDelimiter(" ");
+            super.setType(sc.nextLine());
             super.setSizeX(sc.nextInt());
             super.setSizeY(sc.nextInt());
             super.setMax(sc.nextInt());
 
             this.tbl_pixels = new PixelPPM[super.getSizeX() + 1][super.getSizeY() + 1];
 
-            for (int i = 0; i < Math.floor(super.getSizeY()/3); i++) {
-                for (int j = 0; i < Math.floor(super.getSizeX()/3); i++) {
-                    this.tbl_pixels[i][j] = new PixelPPM(sc.nextInt(),sc.nextInt(),sc.nextInt());
+            for (int i = 0; i < super.getSizeY(); i++) {
+                for (int j = 0; j < super.getSizeX(); j++) {
+                    this.tbl_pixels[j][i] = new PixelPPM(sc.nextInt(),sc.nextInt(),sc.nextInt());
                 }
             }
         } catch (java.io.FileNotFoundException exception) {

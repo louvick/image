@@ -3,6 +3,14 @@ public class ImageManager {
         image2.setSizeX(image.getSizeX());
         image2.setSizeY(image.getSizeY());
         image2.setMax(image.getMax());
+        image2.setType(image.getType());
+        if(image instanceof ImagePGM) {
+            ImagePGM pgmImage = (ImagePGM) image2;
+            ((ImagePGM) image2).setPixels(((ImagePGM) image));
+        } else if(image instanceof ImagePPM) {
+            ImagePPM ppmImage = (ImagePPM) image2;
+            ((ImagePPM) image2).setPixels(((ImagePPM) image));
+        }
     }
 
     public void lire(Image image, String fichier) {

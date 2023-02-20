@@ -10,15 +10,15 @@ public class ImagePGM extends Image{
         return this.tbl_pixels;
     }
 
-    public void setPixels() {
-
+    public void setPixels(ImagePGM image) {
+        this.tbl_pixels = image.getPixels().clone();
     }
 
     public void lire(String fichier) {
         try {
             FileReader lecture = new FileReader(fichier);
             Scanner sc = new Scanner(lecture);
-            
+
             super.setType(sc.nextLine());
             super.setSizeX(sc.nextInt());
             super.setSizeY(sc.nextInt());
