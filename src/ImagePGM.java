@@ -18,20 +18,17 @@ public class ImagePGM extends Image{
         try {
             FileReader lecture = new FileReader(fichier);
             Scanner sc = new Scanner(lecture);
-
-            sc.useDelimiter(" ");
-            System.out.println("a");
+            
+            super.setType(sc.nextLine());
             super.setSizeX(sc.nextInt());
             super.setSizeY(sc.nextInt());
             super.setMax(sc.nextInt());
-            System.out.println("b");
 
             this.tbl_pixels = new PixelPGM[super.getSizeX() + 1][super.getSizeY() + 1];
 
-            for (int i = 0; i < Math.floor(super.getSizeY()); i++) {
-                for (int j = 0; i < Math.floor(super.getSizeX()); i++) {
-                    System.out.println(Integer.toString(i)+' '+Integer.toString(j));
-                    this.tbl_pixels[i][j] = new PixelPGM(sc.nextInt());
+            for (int i = 0; i < super.getSizeY(); i++) {
+                for (int j = 0; j < super.getSizeX(); j++) {
+                    this.tbl_pixels[j][i] = new PixelPGM(sc.nextInt());
                 }
             }
         } catch (java.io.FileNotFoundException exception) {
