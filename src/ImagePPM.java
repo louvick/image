@@ -216,7 +216,6 @@ public class ImagePPM extends Image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février
-     * @param image
      * @param x1
      * @param x2
      * @param y1

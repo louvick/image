@@ -237,13 +237,14 @@ public class ImagePGM extends Image{
         int newWidth = x2-x1;
         int newHeight = y2-y1;
 
+        newImage.create(newWidth,newHeight,this.getMax());
+
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(i,j,this.getPixelAt(y1+i,x1+j));
+                newImage.setPixelAt(j,i,this.getPixelAt(y1+i,x1+j));
             }
         }
 
-        newImage.create(newWidth,newHeight,this.getMax());
         this.tbl_pixels = newImage.getPixels().clone();
 
     }
