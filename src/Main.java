@@ -18,6 +18,12 @@ public class Main {
         im.lire(imagecouleur,chemin2);
         im.lire(imagecouleur2,chemin2);
 
+        if(im.sont_identiques(imagegrise2,imagegrise)) {
+            System.out.println("true");
+        }
+        else {
+            System.out.println("true");
+        }
 
         im.ecrire("sadsadsadd.ppm",imagecouleur);
         im.ecrire("sadsadsadd.pgm",imagegrise);
