@@ -90,6 +90,7 @@ public class ImageManager {
         }
     }
 
+    /*
     public void couleur_preponderante(Image image) {
         if(image instanceof ImagePGM){
             ImagePGM pgmImage = (ImagePGM) image;
@@ -100,4 +101,5 @@ public class ImageManager {
             ((ImagePPM) image).couleur_preponderante();
         }
     }
+    */
 }

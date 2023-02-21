@@ -205,6 +205,7 @@ public class ImagePGM extends Image{
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePGM newImage = new ImagePGM();
+        newImage.setPixels(this);
         newImage.create(newWidth, newHeight, super.getMax());
 
         for (int y = 0; y < newHeight; y++) {
