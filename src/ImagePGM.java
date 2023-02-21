@@ -288,20 +288,12 @@ public class ImagePGM extends Image{
      *
      */
     public boolean sont_identiques(ImagePGM image1){
-
-        if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
-
+        if(image1.getType().equals(this.getType()) && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
             for(int i = 0; i < image1.getSizeY(); i++){
-
                 for(int j = 0; j < image1.getSizeX(); j++){
-
-                    if(image1.getPixels()[i][j].getPixel() == this.getPixels()[i][j].getPixel()){
-
-                    }
-                    else{
+                    if(image1.getPixels()[j][i].getPixel() != this.getPixels()[j][i].getPixel()){
                         return false;
                     }
-
                 }
             }
         }

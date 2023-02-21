@@ -3,6 +3,7 @@ import java.util.Arrays;
 public class Main {
     public static void main(String[] args) {
         String chemin = "image1.pgm";
+        String chemin3 = "sadsadsadd.pgm";
         String chemin2 = "image1.ppm";
 
         ImageManager im = new ImageManager();
@@ -18,11 +19,11 @@ public class Main {
         im.lire(imagecouleur,chemin2);
         im.lire(imagecouleur2,chemin2);
 
-        if(im.sont_identiques(imagegrise2,imagegrise)) {
+        if(im.sont_identiques(imagecouleur2,imagegrise)) {
             System.out.println("true");
         }
         else {
-            System.out.println("true");
+            System.out.println("false");
         }
 
         im.ecrire("sadsadsadd.ppm",imagecouleur);
