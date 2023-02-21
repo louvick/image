@@ -1,6 +1,8 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Scanner;
 
 /**
@@ -310,6 +312,44 @@ public class ImagePGM extends Image{
         }
 
         return true;
+    }
+
+    /**
+     *
+     * Cette méthode va retourner la valeur de la couleur la plus présente dans une image à partir d'un tableau et d'un compteur
+     *
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @Date 20 février
+     * @param image
+     * @return int
+     *
+     */
+    public int couleur_preponderante() {
+
+        int couleurPreponderante = 0;
+
+        for (int i = 0; i < this.getSizeX(); i++) {
+            for (int j = 0; j < this.getSizeY(); j++) {
+
+                tbl_pixels[i][j].getPixel();
+            }
+        }
+
+        Map<String, String> listOccuPixels = new HashMap<String, String>();
+
+
+        //array = {'192':0,'191':0, '255':0}
+//
+//
+        //for i in [192,192,192,192,191,255,255]:
+        //array[str(i)]=array[str(i)]+1
+//
+        //for i in array:
+        //print(array[i])
+
+
+        return couleurPreponderante;
+
     }
 
 }

@@ -89,4 +89,15 @@ public class ImageManager {
             ((ImagePPM) image).extraire(x1, y1, x2, y2);
         }
     }
+
+    public void couleur_preponderante(Image image) {
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            ((ImagePGM) image).couleur_preponderante();
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            ((ImagePPM) image).couleur_preponderante();
+        }
+    }
 }
