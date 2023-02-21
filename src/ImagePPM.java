@@ -303,13 +303,9 @@ public class ImagePPM extends Image
     public boolean sont_identiques(ImagePPM image1){
 
         boolean ver = false;
-
-        if(image1.getType() == this.getType() && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
-
-            for(int i = 0; i < image1.getSizeX(); i++){
-
-                for(int j = 0; j < image1.getSizeY(); j++){
-
+        if(image1.getType().equals(this.getType()) && image1.getSizeY() == this.getSizeY() && image1.getSizeX() == this.getSizeX() && image1.getMax() == this.getMax()){
+            for(int i = 0; i < image1.getSizeY(); i++){
+                for(int j = 0; j < image1.getSizeX(); j++){
                     if(image1.getPixels()[j][i].getRed() == this.getPixels()[j][i].getRed() &&
                             image1.getPixels()[j][i].getGreen() == this.getPixels()[j][i].getGreen() &&
                             image1.getPixels()[j][i].getBlue() == this.getPixels()[j][i].getBlue()){
@@ -318,7 +314,6 @@ public class ImagePPM extends Image
                     else{
                         return false;
                     }
-
                 }
             }
         }
