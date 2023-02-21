@@ -323,5 +323,9 @@ public class ImagePPM extends Image
         return ver;
     }
 
+    public int couleur_preponderante() {
+        return 1;
+    }
+
 
 }

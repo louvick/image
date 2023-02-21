@@ -61,6 +61,7 @@ public class ImagePGM extends Image{
         super.setSizeX(sizeX);
         super.setSizeY(sizeY);
         super.setMax(max);
+        this.tbl_pixels = new PixelPGM[sizeX + 1][sizeY+1];
         super.setType("P2");
     }
 
@@ -77,7 +78,7 @@ public class ImagePGM extends Image{
      *
      */
     public void setPixelAt(int x, int y, int value) {
-        tbl_pixels[y][x].setPixel(value);
+        this.tbl_pixels[y][x].setPixel(value);
     }
 
     /**
@@ -243,7 +244,7 @@ public class ImagePGM extends Image{
 
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(j,i,this.getPixelAt(y1+i,x1+j));
+                newImage.setPixelAt(i,j,this.getPixelAt(y1+i,x1+j));
             }
         }
 
