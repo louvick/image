@@ -50,7 +50,7 @@ public class ImagePPM extends Image
      *
      */
     public PixelPPM getPixelAt(int x, int y) {
-        return tbl_pixels[y][x];
+        return tbl_pixels[x][y];
     }
 
     /**
