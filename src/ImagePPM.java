@@ -35,6 +35,7 @@ public class ImagePPM extends Image
         super.setSizeX(sizeX);
         super.setSizeY(sizeY);
         super.setMax(max);
+        this.tbl_pixels = new PixelPPM[sizeX + 1][sizeY+1];
         super.setType("P3");
     }
 
