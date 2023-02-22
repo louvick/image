@@ -201,7 +201,7 @@ public class ImagePGM extends Image{
      * @return ImagePGM
      *
      */
-    public ImagePGM reduire() {
+    public void reduire() {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePGM newImage = new ImagePGM();
@@ -221,7 +221,8 @@ public class ImagePGM extends Image{
                 newImage.setPixelAt(x,y,average);
             }
         }
-        return newImage;
+        this.create(newWidth,newHeight,255);
+        this.tbl_pixels = newImage.getPixels().clone();
     }
 
     /**
