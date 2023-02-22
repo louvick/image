@@ -15,6 +15,11 @@ import java.util.Scanner;
 public class ImagePPM extends Image
 {
     private PixelPPM tbl_pixels[][];
+
+    /**
+     * constructeur par défaut
+     * @return PixelPPM[][] retourne un tableau de pixel
+     */
     public PixelPPM[][] getPixels() {
         return this.tbl_pixels;
     }
@@ -42,7 +47,7 @@ public class ImagePPM extends Image
      *
      * @param x variable des x
      * @param y variable des y
-     * return PixelPPM
+     * @return PixelPPM
      *
      */
     public PixelPPM getPixelAt(int x, int y) {
@@ -307,6 +312,7 @@ public class ImagePPM extends Image
 
     /**
      * permet de sortir la couleur qui revient le plus souvant
+     * @return String
      */
 
     public String couleur_preponderante() {
