@@ -337,7 +337,7 @@ public class ImagePGM extends Image{
 
     /**
      *
-     * Cette méthode va retourner la valeur de la couleur la plus présente dans une image à partir d'un tableau et d'un compteur
+     * Cette méthode va retourner la couleur la plus présente dans une image à partir d'un tableau et d'un compteur
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février

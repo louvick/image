@@ -30,6 +30,11 @@ public class PixelPPM {
         this.blue=blue;
     }
 
+    /**
+     * @date 2023-02-20
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * permet de construire le pixel avec rien comme paramètre
+     */
     public PixelPPM() {
         this.red=0;
         this.green=0;
