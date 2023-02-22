@@ -243,7 +243,7 @@ public class ImagePPM extends Image
 
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(j,i,this.getPixelAt(y1+j,x1+i).getRed(),this.getPixelAt(y1+j,x1+i).getGreen(),this.getPixelAt(y1+j,x1+i).getBlue());
+                newImage.setPixelAt(j,i,this.getPixelAt(x1+j,y1+i).getRed(),this.getPixelAt(x1+j,y1+i).getGreen(),this.getPixelAt(x1+j,y1+i).getBlue());
             }
         }
 
