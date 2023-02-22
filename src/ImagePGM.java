@@ -45,6 +45,14 @@ public class ImagePGM extends Image{
         this.tbl_pixels = image.getPixels().clone();
     }
 
+    public void setPixels() {
+        for (int i = 0; i < super.getSizeY(); i++) {
+            for (int j = 0; j < super.getSizeX(); j++) {
+                this.tbl_pixels[j][i] = new PixelPGM();
+            }
+        }
+    }
+
     /**
      *
      * Cette méthode créer une image de type PGM
@@ -207,7 +215,7 @@ public class ImagePGM extends Image{
         ImagePGM newImage = new ImagePGM();
 
         newImage.create(newWidth, newHeight, super.getMax());
-        newImage.setPixels(this);
+        newImage.setPixels();
 
         for (int y = 0; y < newHeight; y++) {
             for (int x = 0; x < newWidth; x++) {
@@ -243,7 +251,9 @@ public class ImagePGM extends Image{
         int newWidth = x2-x1;
         int newHeight = y2-y1;
 
-        newImage.create(newWidth,newHeight,this.getMax());
+        newImage.create(newWidth, newHeight, super.getMax());
+        newImage.setPixels();
+
 
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
@@ -251,6 +261,7 @@ public class ImagePGM extends Image{
             }
         }
 
+        this.create(newWidth,newHeight,255);
         this.tbl_pixels = newImage.getPixels().clone();
 
     }

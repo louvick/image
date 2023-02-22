@@ -85,7 +85,13 @@ public class ImagePPM extends Image
     public void setPixels(ImagePPM image) {
         this.tbl_pixels = image.getPixels().clone();
     }
-
+    public void setPixels() {
+        for (int i = 0; i < super.getSizeY(); i++) {
+            for (int j = 0; j < super.getSizeX(); j++) {
+                this.tbl_pixels[i][j] = new PixelPPM();
+            }
+        }
+    }
     /**
      *
      * Cette méthode va pivoter l'image de 90 degrées
@@ -189,7 +195,7 @@ public class ImagePPM extends Image
         ImagePPM newImage = new ImagePPM();
 
         newImage.create(newWidth, newHeight, super.getMax());
-        newImage.setPixels(this);
+        newImage.setPixels();
 
         for (int y = 0; y < newHeight; y++) {
             for (int x = 0; x < newWidth; x++) {

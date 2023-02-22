@@ -21,7 +21,7 @@ public class Main {
         ImagePPM imagecouleur2 = new ImagePPM();
 
         im.lire(imagegrise,chemin);
-        imagegrise.reduire();
+        imagegrise.extraire(0,0,10,10);
         im.ecrire(cheminextraire, imagegrise);
 
         im.lire(imagecouleur, chemin2);

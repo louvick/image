@@ -30,6 +30,12 @@ public class PixelPPM {
         this.blue=blue;
     }
 
+    public PixelPPM() {
+        this.red=0;
+        this.green=0;
+        this.blue=0;
+    }
+
     /**
      *
      * Cette méthode permet d'avoir la valeur rouge d'un objet pixel
