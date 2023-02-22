@@ -128,6 +128,8 @@ public class PixelPPM {
      * @param blue
      *
      */
+
+
     public void setColor(int red, int green, int blue){
         setRed(red);
         setGreen(green);
