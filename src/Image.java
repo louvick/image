@@ -22,7 +22,7 @@ public class Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param sizeX
+     * @param
      * @return int
      *
      */
@@ -62,7 +62,7 @@ public class Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param sizeY
+     * @param
      * @return int
      *
      */
@@ -92,7 +92,7 @@ public class Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param max
+     * @param
      * @return int
      *
      */
@@ -121,7 +121,7 @@ public class Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param type
+     * @param
      * @return String
      *
      */

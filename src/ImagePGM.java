@@ -205,7 +205,7 @@ public class ImagePGM extends Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param image
+     * @param
      * @return ImagePGM
      *
      */
@@ -341,7 +341,7 @@ public class ImagePGM extends Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février
-     * @param image
+     * @param
      * @return int
      *
      */

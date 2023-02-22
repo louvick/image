@@ -1,4 +1,12 @@
+/**
+ *
+ */
 public class ImageManager {
+    /**
+     * Permet de copier des images
+     * @param image
+     * @param image2
+     */
     public void copier(Image image, Image image2) {
         image2.setSizeX(image.getSizeX());
         image2.setSizeY(image.getSizeY());
@@ -13,6 +21,13 @@ public class ImageManager {
         }
     }
 
+    /**
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     *
+     * Permet de lire une image avec un fichier
+     * @param image
+     * @param fichier
+     */
     public void lire(Image image, String fichier) {
         if(image instanceof ImagePGM) {
             ImagePGM pgmImage = (ImagePGM) image;
@@ -23,6 +38,12 @@ public class ImageManager {
         }
     }
 
+    /**
+     * @date 2023-02-20
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * permet de tourner une image à 90 degree
+     * @param image
+     */
     public void pivoter90(Image image) {
         if(image instanceof ImagePGM) {
             ImagePGM pgmImage = (ImagePGM) image;
@@ -33,6 +54,14 @@ public class ImageManager {
         }
     }
 
+    /**
+     * @date 2023-02-20
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * permet de savoir si deux images sont identiques
+     * @param image1
+     * @param image2
+     * @return
+     */
     public boolean sont_identiques(Image image1, Image image2){
 
         if(image1 instanceof ImagePGM && image2 instanceof ImagePGM){
@@ -49,6 +78,13 @@ public class ImageManager {
         return false;
     }
 
+    /**
+     * @date 2023-02-20
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * permet d'écrire une image dans un fichier
+     * @param fichier
+     * @param image
+     */
     public void ecrire(String fichier, Image image) {
         if(image instanceof ImagePGM){
             ImagePGM pgmImage = (ImagePGM) image;
@@ -68,6 +104,13 @@ public class ImageManager {
         }
     }
 
+    /**
+     * @date 2023-02-20
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * permet d'éclaircir ou de noircir des images
+     * @param image
+     * @param valeur
+     */
     public void eclaircir_noircir(Image image, int valeur) {
         if(image instanceof ImagePGM){
             ImagePGM pgmImage = (ImagePGM) image;
