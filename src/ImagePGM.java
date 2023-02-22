@@ -247,22 +247,30 @@ public class ImagePGM extends Image{
      *
      */
     public void extraire(int x1, int y1, int x2, int y2) {
-        ImagePGM newImage = new ImagePGM();
-        int newWidth = x2-x1;
-        int newHeight = y2-y1;
 
-        newImage.create(newWidth, newHeight, super.getMax());
-        newImage.setPixels();
+        try{
+
+            ImagePGM newImage = new ImagePGM();
+            int newWidth = x2-x1;
+            int newHeight = y2-y1;
+
+            newImage.create(newWidth, newHeight, super.getMax());
+            newImage.setPixels();
 
 
-        for (int i = 0; i < newHeight; i++) {
-            for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(j,i,this.getPixelAt(x1+j,y1+i));
+            for (int i = 0; i < newHeight; i++) {
+                for (int j = 0; j < newWidth; j++) {
+                    newImage.setPixelAt(j,i,this.getPixelAt(x1+j,y1+i));
+                }
             }
-        }
 
-        this.create(newWidth,newHeight,255);
-        this.tbl_pixels = newImage.getPixels().clone();
+            this.create(newWidth,newHeight,255);
+            this.tbl_pixels = newImage.getPixels().clone();
+        }
+        catch (ExceptionValeurHorsRange ExceptionValeurHorsRange){
+
+            System.out.println(ExceptionValeurHorsRange);
+        }
 
     }
 
