@@ -184,7 +184,7 @@ public class ImagePPM extends Image
      * @param image
      * @return ImagePPM
      **/
-     public ImagePPM reduire(ImagePPM image) {
+     public void reduire() {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePPM newImage = new ImagePPM();
@@ -208,7 +208,6 @@ public class ImagePPM extends Image
                 newImage.setPixelAt(x,y,averageRed,averageGreen,averageBlue);
             }
         }
-        return newImage;
     }
 
     /**

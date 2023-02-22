@@ -90,6 +90,17 @@ public class ImageManager {
         }
     }
 
+    public void reduire(Image image) {
+        if(image instanceof ImagePGM){
+            ImagePGM pgmImage = (ImagePGM) image;
+            ((ImagePGM) image).reduire();
+        }
+        else if(image instanceof ImagePPM){
+            ImagePPM ppmImage = (ImagePPM) image;
+            ((ImagePPM) image).reduire();
+        }
+    }
+
     /*
     public void couleur_preponderante(Image image) {
         if(image instanceof ImagePGM){
