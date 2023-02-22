@@ -17,13 +17,13 @@ import java.util.Scanner;
 public class ImagePGM extends Image{
     private PixelPGM tbl_pixels[][];
 
+
     /**
      *
      * Cette méthode retourne un tableau avec tous les pixels d'une image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param tbl_pixels
      * @return PixelPGM[][]
      *
      */
@@ -37,7 +37,7 @@ public class ImagePGM extends Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param tbl_pixels
+     * @param image
      * @return void
      *
      */
@@ -78,7 +78,7 @@ public class ImagePGM extends Image{
      *
      */
     public void setPixelAt(int x, int y, int value) {
-        this.tbl_pixels[x][y].setPixel(value);
+        this.tbl_pixels[y][x].setPixel(value);
     }
 
     /**
