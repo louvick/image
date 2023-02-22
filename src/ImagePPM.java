@@ -337,6 +337,13 @@ public class ImagePPM extends Image
         return ver;
     }
 
+    /**
+     * @date 2023-02-20
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * permet de sortir la couleur qui revient le plus souvant
+     * @return
+     */
+
     public String couleur_preponderante() {
 
         HashMap<String, String> listOccuPixels = new HashMap<String, String>();
