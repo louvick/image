@@ -79,6 +79,10 @@ public class ImagePPM extends Image
     public void setPixels(ImagePPM image) {
         this.tbl_pixels = image.getPixels().clone();
     }
+
+    /**
+     * met tout le tableau à zéro
+     */
     public void setPixels() {
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {

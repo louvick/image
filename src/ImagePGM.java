@@ -38,6 +38,9 @@ public class ImagePGM extends Image{
         this.tbl_pixels = image.getPixels().clone();
     }
 
+    /**
+     * met tout le tableau à zéro
+     */
     public void setPixels() {
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
