@@ -20,8 +20,8 @@ public class Main {
         ImagePPM imagecouleur = new ImagePPM();
         ImagePPM imagecouleur2 = new ImagePPM();
 
-        im.lire(imagegrise,chemin);
-        im.couleur_preponderante(imagegrise);
+        im.lire(imagecouleur,chemin2);
+        im.couleur_preponderante(imagecouleur);
 
 /*
         im.lire(imagegrise,chemin);
