@@ -23,8 +23,8 @@ public class Main {
 
 
 
-        //im.lire(imagecouleur, originalPPM);
-        //im.lire(imagegrise, originalPGM);
+        im.lire(imagecouleur, chemin2);
+        im.lire(imagegrise, originalPGM);
 
         //test copier
 
@@ -33,13 +33,14 @@ public class Main {
 
 
         //Test sont_identique
-/*
+
+        /*
         im.lire(imagegrise,chemin);
         im.lire(imagegrise2,chemin);
         im.lire(imagecouleur,chemin2);
         im.lire(imagecouleur2,chemin2);
 
-        if(im.sont_identiques(imagegrise2,imagegrise)) {
+        if(im.sont_identiques(imagecouleur2,imagecouleur)) {
             System.out.println("true");
         }
         else {
@@ -48,8 +49,8 @@ public class Main {
 
         im.ecrire("sadsadsadd.ppm",imagecouleur);
         im.ecrire("sadsadsadd.pgm",imagegrise);
-*/
 
+*/
 
         //Test pivoter90()
 
@@ -76,14 +77,14 @@ public class Main {
 
         //Test couleur_preponderante
 
-       // im.couleur_preponderante(imagecouleur);
-        //im.couleur_preponderante(imagegrise);
+        im.couleur_preponderante(imagecouleur);
+        im.couleur_preponderante(imagegrise);
 
 
 
         //Écriture
-        im.ecrire(chemin2, imagecouleur);
-        im.ecrire(chemin, imagegrise);
+        //im.ecrire(chemin2, imagecouleur);
+        //im.ecrire(chemin, imagegrise);
 
 
     }
