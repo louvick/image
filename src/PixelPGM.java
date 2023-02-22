@@ -2,7 +2,6 @@
  *
  * Cette classe gère un pixel de type PGM (donc une valeur par pixel)
  *
- * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
  *
  */
 public class PixelPGM {
@@ -21,7 +20,6 @@ public class PixelPGM {
      *
      * Cette méthode est un constructeur d'un pixel
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param pixel valeur du pixel
      *
      */
@@ -34,7 +32,6 @@ public class PixelPGM {
      *
      * Cette méthode permet d'avoir la valeur d'un objet pixel
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @return int
      *
      */
@@ -47,7 +44,6 @@ public class PixelPGM {
      *
      * Cette méthode permet de donner une valeur à un pixel
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param pixel met la valeur du pixel
      *
      */
