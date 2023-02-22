@@ -12,6 +12,7 @@ public class ImageManager {
         image2.setSizeY(image.getSizeY());
         image2.setMax(image.getMax());
         image2.setType(image.getType());
+
         if(image instanceof ImagePGM) {
             ImagePGM pgmImage = (ImagePGM) image2;
             ((ImagePGM) image2).setPixels(((ImagePGM) image));
