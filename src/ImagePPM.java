@@ -69,7 +69,7 @@ public class ImagePPM extends Image
      *
      */
     public void setPixelAt(int x, int y, int red, int green, int blue) {
-        tbl_pixels[y][x].setColor(red,green,blue);
+        tbl_pixels[x][y].setColor(red,green,blue);
     }
 
     /**
@@ -88,7 +88,7 @@ public class ImagePPM extends Image
     public void setPixels() {
         for (int i = 0; i < super.getSizeY(); i++) {
             for (int j = 0; j < super.getSizeX(); j++) {
-                this.tbl_pixels[i][j] = new PixelPPM();
+                this.tbl_pixels[j][i] = new PixelPPM();
             }
         }
     }
@@ -238,13 +238,16 @@ public class ImagePPM extends Image
         int newWidth = x2-x1;
         int newHeight = y2-y1;
 
+        newImage.create(newWidth,newHeight,255);
+        newImage.setPixels();
+
         for (int i = 0; i < newHeight; i++) {
             for (int j = 0; j < newWidth; j++) {
-                newImage.setPixelAt(i,j,this.getPixelAt(y1+i,x1+j).getRed(),this.getPixelAt(y1+i,x1+j).getGreen(),this.getPixelAt(y1+i,x1+j).getBlue());
+                newImage.setPixelAt(j,i,this.getPixelAt(y1+j,x1+i).getRed(),this.getPixelAt(y1+j,x1+i).getGreen(),this.getPixelAt(y1+j,x1+i).getBlue());
             }
         }
 
-        newImage.create(newWidth,newHeight,super.getMax());
+        this.create(newWidth,newHeight,super.getMax());
 
         this.tbl_pixels = newImage.getPixels().clone();
 
