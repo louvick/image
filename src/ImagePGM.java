@@ -250,6 +250,8 @@ public class ImagePGM extends Image{
 
         try{
 
+            Validation test = new Validation();
+
             ImagePGM newImage = new ImagePGM();
             int newWidth = x2-x1;
             int newHeight = y2-y1;
@@ -257,6 +259,8 @@ public class ImagePGM extends Image{
             newImage.create(newWidth, newHeight, super.getMax());
             newImage.setPixels();
 
+            test.validePositionImage(x1,y1, newImage.getSizeX(), newImage.getSizeY());
+            test.validePositionImage(x2,y2, newImage.getMax(), newImage.getSizeY());
 
             for (int i = 0; i < newHeight; i++) {
                 for (int j = 0; j < newWidth; j++) {
@@ -266,6 +270,7 @@ public class ImagePGM extends Image{
 
             this.create(newWidth,newHeight,255);
             this.tbl_pixels = newImage.getPixels().clone();
+
         }
         catch (ExceptionValeurHorsRange ExceptionValeurHorsRange){
 
