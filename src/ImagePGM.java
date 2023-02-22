@@ -11,7 +11,6 @@ import java.util.Scanner;
  * Elle va gérer les images de type PGM (donc les images avec des pixels à une seule valeur)
  *
  * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
- * @Date 20 février 2023
  *
  */
 public class ImagePGM extends Image{
@@ -23,7 +22,6 @@ public class ImagePGM extends Image{
      * Cette méthode retourne un tableau avec tous les pixels d'une image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
      * @return PixelPGM[][]
      *
      */
@@ -36,9 +34,7 @@ public class ImagePGM extends Image{
      * Cette méthode set dans une image, tous les pixels à partir d'un tableau de pixels
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param image
-     * @return void
+     * @param image passe une image
      *
      */
     public void setPixels(ImagePGM image) {
@@ -58,11 +54,9 @@ public class ImagePGM extends Image{
      * Cette méthode créer une image de type PGM
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param sizeY
-     * @param sizeX
-     * @param max
-     * @return void
+     * @param sizeY passe une grandeur de y à mettre
+     * @param sizeX passe une grandeur de x à mettre
+     * @param max passe un max à mettre
      *
      */
     public void create(int sizeX, int sizeY, int max) {
@@ -78,11 +72,9 @@ public class ImagePGM extends Image{
      * Cette méthode set un la valeur d'un pixel déterminer en x et en y à partir d'un tableau de pixels
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param x
-     * @param y
-     * @param value
-     * @return void
+     * @param x passe une valeur de x
+     * @param y passe une valeur de y
+     * @param value donne une valeur a mettre
      *
      */
     public void setPixelAt(int x, int y, int value) {
@@ -94,9 +86,8 @@ public class ImagePGM extends Image{
      * Cette méthode retourne la valeur d'un pixel déterminer en x et en y à partir d'un tableau de pixels
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param x
-     * @param y
+     * @param x passe une valeur de x
+     * @param y passe une valeur de y
      * @return int
      *
      */
@@ -109,9 +100,7 @@ public class ImagePGM extends Image{
      * Cette méthode permet de lire une image dans un fichier
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param fichier
-     * @return void
+     * @param fichier passe un fichier
      *
      */
     public void lire(String fichier) {
@@ -142,10 +131,8 @@ public class ImagePGM extends Image{
      * Cette méthode permet d'écrire dans un fichier
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param fichier
-     * @exception FileNotFoundException
-     * @return void
+     * @param fichier passe un fichier
+     * @exception FileNotFoundException trouve pas le fichier
      *
      */
     public void ecrire(String fichier) throws FileNotFoundException {
@@ -182,8 +169,6 @@ public class ImagePGM extends Image{
      * Cette méthode permet de pivoter une image à 90 degré
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @return void
      *
      */
     public void pivoter90() {
@@ -204,9 +189,6 @@ public class ImagePGM extends Image{
      * Cette méthode permet de réduire une image par deux
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param
-     * @return ImagePGM
      *
      */
     public void reduire() {
@@ -238,12 +220,10 @@ public class ImagePGM extends Image{
      * Cette méthode permet d'extraire une partie de l'image et d'en faire une autre avec celle-ci
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param x1
-     * @param x2
-     * @param y1
-     * @param y2
-     * @return void
+     * @param x1 variable x du coin à gauche
+     * @param x2 variable x du coin à droite
+     * @param y1 variable y du coin à gauche
+     * @param y2 variable y du coin à droite
      *
      */
     public void extraire(int x1, int y1, int x2, int y2) {
@@ -285,9 +265,7 @@ public class ImagePGM extends Image{
      * Cette méthode permet d'éclaircir ou de noircir une image à partir d'une valeur
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param valeur
-     * @return void
+     * @param valeur passe une valeur a additionner
      *
      */
     public void eclaircir_noircir(int valeur){
@@ -313,8 +291,7 @@ public class ImagePGM extends Image{
      * Cette méthode permet de vérifier si deux images sont identiques ou différentes
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param image1
+     * @param image1 passe une image
      * @return boolean
      *
      */
@@ -340,8 +317,6 @@ public class ImagePGM extends Image{
      * Cette méthode va retourner la couleur la plus présente dans une image à partir d'un tableau et d'un compteur
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param
      * @return int
      *
      */

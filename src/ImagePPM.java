@@ -45,9 +45,8 @@ public class ImagePPM extends Image
      * Cette méthode va chercher un pixel précis sur l'image selon des coordonnées
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param x
-     * @param y
+     * @param x variable des x
+     * @param y variable des y
      * return PixelPPM
      *
      */
@@ -60,13 +59,11 @@ public class ImagePPM extends Image
      * Cette méthode va mettre une valeur précise à un certain point sur l'image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param x
-     * @param y
-     * @param red
-     * @param green
-     * @param blue
-     * @return void
+     * @param x variable des x
+     * @param y variable des y
+     * @param red variable de la valeur du rouge
+     * @param green variable de la valeur du vert
+     * @param blue variable de la valeur du bleur
      *
      */
     public void setPixelAt(int x, int y, int red, int green, int blue) {
@@ -78,9 +75,7 @@ public class ImagePPM extends Image
      * Cette méthode va mettre une valeur précise à un certain point sur l'image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param image
-     * @return void
+     * @param image passe une image
      *
      */
     public void setPixels(ImagePPM image) {
@@ -98,9 +93,6 @@ public class ImagePPM extends Image
      * Cette méthode va pivoter l'image de 90 degrées
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param
-     * @return void
      *
      */
     public void pivoter90() {
@@ -120,9 +112,7 @@ public class ImagePPM extends Image
      * Cette méthode va ouvrir un fichier selon le nom mis en paramètre et l'insérer dans une image du même type
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param fichier
-     * @return void
+     * @param fichier passe une fichier
      *
      */
     public void lire(String fichier) {
@@ -152,7 +142,6 @@ public class ImagePPM extends Image
      * Cette méthode va ouvrir un fichier et écrire 
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
      *
      */
     public void ecrire(String fichier) throws FileNotFoundException {
@@ -187,8 +176,6 @@ public class ImagePPM extends Image
      * Cette méthode va réduire l'image originale, Elle va prendre la valeur de quatre pixel, calculer la moyenne de celles-ci
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @return ImagePPM
      **/
      public void reduire() {
         int newWidth = this.getSizeX() / 2;
@@ -226,12 +213,10 @@ public class ImagePPM extends Image
      * Cette méthode va chercher une image à partir de deux points sur l'image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param x1
-     * @param x2
-     * @param y1
-     * @param y2
-     * @return ImagePPM
+     * @param x1 variable x du coin à gauche
+     * @param x2 variable x du coin à droite
+     * @param y1 variable y du coin à gauche
+     * @param y2 variable y du coin à droite
      *
      */
     public void extraire(int x1, int y1, int x2, int y2) {
@@ -259,9 +244,7 @@ public class ImagePPM extends Image
      * Cette méthode va éclaircir ou noircir la valeur selon la valeur en paramètre. Une valeur négative va éclaricir l'image, alors qu'une valeur positive va noircir l'image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param valeur
-     * @return void
+     * @param valeur valeur a ajouter
      *
      */
     public void eclaircir_noircir(int valeur){
@@ -308,8 +291,7 @@ public class ImagePPM extends Image
      * Cette méthode va comparer les valeurs de deux images en paramètre. Si elles sont identiques, le retour est true, sinon, elle est fausse
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février
-     * @param image1
+     * @param image1 passe une image
      * @return boolean
      *
      */
@@ -338,10 +320,8 @@ public class ImagePPM extends Image
     }
 
     /**
-     * @date 2023-02-20
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * permet de sortir la couleur qui revient le plus souvant
-     * @return
      */
 
     public String couleur_preponderante() {
