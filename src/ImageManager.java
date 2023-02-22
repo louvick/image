@@ -4,8 +4,8 @@
 public class ImageManager {
     /**
      * Permet de copier des images
-     * @param image
-     * @param image2
+     * @param image premiere image
+     * @param image2 deuxième image
      */
     public void copier(Image image, Image image2) {
         image2.setSizeX(image.getSizeX());
@@ -23,11 +23,10 @@ public class ImageManager {
     }
 
     /**
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      *
      * Permet de lire une image avec un fichier
-     * @param image
-     * @param fichier
+     * @param image une image (liste pixels)
+     * @param fichier le nom d'un fichier
      */
     public void lire(Image image, String fichier) {
         if(image instanceof ImagePGM) {
@@ -40,10 +39,8 @@ public class ImageManager {
     }
 
     /**
-     * @date 2023-02-20
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * permet de tourner une image à 90 degree
-     * @param image
+     * @param image une image (liste pixels)
      */
     public void pivoter90(Image image) {
         if(image instanceof ImagePGM) {
@@ -56,12 +53,10 @@ public class ImageManager {
     }
 
     /**
-     * @date 2023-02-20
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * permet de savoir si deux images sont identiques
-     * @param image1
-     * @param image2
-     * @return
+     * @param image1 premiere image
+     * @param image2 deuxième image
+     * @return boolean
      */
     public boolean sont_identiques(Image image1, Image image2){
 
@@ -80,11 +75,9 @@ public class ImageManager {
     }
 
     /**
-     * @date 2023-02-20
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * permet d'écrire une image dans un fichier
-     * @param fichier
-     * @param image
+     * @param fichier nom du fichier
+     * @param image image (liste de pixels)
      */
     public void ecrire(String fichier, Image image) {
         if(image instanceof ImagePGM){
@@ -106,11 +99,9 @@ public class ImageManager {
     }
 
     /**
-     * @date 2023-02-20
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * permet d'éclaircir ou de noircir des images
-     * @param image
-     * @param valeur
+     * @param image image (liste de pixels)
+     * @param valeur valeur 0-255
      */
     public void eclaircir_noircir(Image image, int valeur) {
         if(image instanceof ImagePGM){
@@ -126,13 +117,12 @@ public class ImageManager {
     /**
      *
      * Cette méthode sert à extraire une plus petite image dans l'image mère. Cette méthode dans le manager gère les deux types d'images
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @date 2023-02-20
-     * @param image
-     * @param x1
-     * @param y1
-     * @param x2
-     * @param y2
+     *
+     * @param image image (liste pixels)
+     * @param x1 position de coin premier x
+     * @param y1 position de coin premier y
+     * @param x2 position de coin deuxieme x
+     * @param y2 position de coin deuxieme y
      */
     public void extraire(Image image, int x1, int y1, int x2, int y2) {
         if(image instanceof ImagePGM){
@@ -148,9 +138,8 @@ public class ImageManager {
     /**
      *
      * Cette méthode va réduire l'image par 4. Ceci veut dire qu'il va prendre des bloques de pixel (2 x 2) calculer la moyenne de la valeur des pixels et en faire une (un pixel avec les moyennes comme valeur
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @date 2023-02-20
-     * @param image
+     *
+     * @param image image (liste pixels)
      */
     public void reduire(Image image) {
         if(image instanceof ImagePGM){
@@ -163,7 +152,12 @@ public class ImageManager {
         }
     }
 
-
+    /**
+     *
+     * Cette méthode regarde tous les pixels d'une image et donne la couleur la plus présente dans celle-ci. Cette méthode dans le manager gère les deux types d'images
+     *
+     * @param image image (liste pixels)
+     */
     public void couleur_preponderante(Image image) {
         if(image instanceof ImagePGM){
             ImagePGM pgmImage = (ImagePGM) image;
