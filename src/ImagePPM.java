@@ -1,6 +1,7 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.Scanner;
 
 /**
@@ -336,8 +337,31 @@ public class ImagePPM extends Image
         return ver;
     }
 
-    public int couleur_preponderante() {
-        return 1;
+    public String couleur_preponderante() {
+
+        HashMap<String, String> listOccuPixels = new HashMap<String, String>();
+
+        for (int i = 0; i < this.getSizeX(); i++) {
+            for (int j = 0; j < this.getSizeY(); j++) {
+                if(listOccuPixels.containsKey(Integer.toString(tbl_pixels[i][j].getRed())+" "+Integer.toString(tbl_pixels[i][j].getGreen())+" "+Integer.toString(tbl_pixels[i][j].getBlue()))) {
+                    listOccuPixels.put(Integer.toString(tbl_pixels[i][j].getRed())+" "+Integer.toString(tbl_pixels[i][j].getGreen())+" "+Integer.toString(tbl_pixels[i][j].getBlue()),Integer.toString(Integer.parseInt(listOccuPixels.get(Integer.toString(tbl_pixels[i][j].getRed())+" "+Integer.toString(tbl_pixels[i][j].getGreen())+" "+Integer.toString(tbl_pixels[i][j].getBlue())))+1));
+                } else {
+                    listOccuPixels.put(Integer.toString(tbl_pixels[i][j].getRed())+" "+Integer.toString(tbl_pixels[i][j].getGreen())+" "+Integer.toString(tbl_pixels[i][j].getBlue()),"1");
+                }
+            }
+        }
+        int min =0;
+        String min2="";
+        for (int i = 0; i < this.getSizeX(); i++) {
+            for (int j = 0; j < this.getSizeY(); j++) {
+                if(Integer.parseInt(listOccuPixels.get(Integer.toString(tbl_pixels[i][j].getRed())+" "+Integer.toString(tbl_pixels[i][j].getGreen())+" "+Integer.toString(tbl_pixels[i][j].getBlue())))>=min) {
+                    min=Integer.parseInt(listOccuPixels.get(Integer.toString(tbl_pixels[i][j].getRed())+" "+Integer.toString(tbl_pixels[i][j].getGreen())+" "+Integer.toString(tbl_pixels[i][j].getBlue())));
+                    min2=Integer.toString(tbl_pixels[i][j].getRed())+" "+Integer.toString(tbl_pixels[i][j].getGreen())+" "+Integer.toString(tbl_pixels[i][j].getBlue());
+                }
+            }
+        }
+        return min2;
+
     }
 
 
