@@ -10,7 +10,6 @@ import java.util.Scanner;
  * Elle va gérer les images de type PPM (donc les images avec des pixels rgb)
  *
  * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
- * @Date 20 février 2023
  *
  */
 public class ImagePPM extends Image
@@ -24,12 +23,9 @@ public class ImagePPM extends Image
      *
      * This method creates an empty image of PPM type
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param sizeY
-     * @param sizeX
-     * @param max
-     * @return void
+     * @param sizeY valeur de la grandeur de y
+     * @param sizeX valeur de la grandeur de x
+     * @param max valeur du maximum
      *
      */
     public void create(int sizeX, int sizeY, int max) {
@@ -44,7 +40,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va chercher un pixel précis sur l'image selon des coordonnées
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param x variable des x
      * @param y variable des y
      * return PixelPPM
@@ -58,7 +53,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va mettre une valeur précise à un certain point sur l'image
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param x variable des x
      * @param y variable des y
      * @param red variable de la valeur du rouge
@@ -74,7 +68,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va mettre une valeur précise à un certain point sur l'image
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param image passe une image
      *
      */
@@ -92,7 +85,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va pivoter l'image de 90 degrées
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      *
      */
     public void pivoter90() {
@@ -111,7 +103,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va ouvrir un fichier selon le nom mis en paramètre et l'insérer dans une image du même type
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param fichier passe une fichier
      *
      */
@@ -141,7 +132,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va ouvrir un fichier et écrire 
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      *
      */
     public void ecrire(String fichier) throws FileNotFoundException {
@@ -175,7 +165,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va réduire l'image originale, Elle va prendre la valeur de quatre pixel, calculer la moyenne de celles-ci
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      **/
      public void reduire() {
         int newWidth = this.getSizeX() / 2;
@@ -212,7 +201,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va chercher une image à partir de deux points sur l'image
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param x1 variable x du coin à gauche
      * @param x2 variable x du coin à droite
      * @param y1 variable y du coin à gauche
@@ -243,7 +231,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va éclaircir ou noircir la valeur selon la valeur en paramètre. Une valeur négative va éclaricir l'image, alors qu'une valeur positive va noircir l'image
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param valeur valeur a ajouter
      *
      */
@@ -290,7 +277,6 @@ public class ImagePPM extends Image
      *
      * Cette méthode va comparer les valeurs de deux images en paramètre. Si elles sont identiques, le retour est true, sinon, elle est fausse
      *
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @param image1 passe une image
      * @return boolean
      *
@@ -320,7 +306,6 @@ public class ImagePPM extends Image
     }
 
     /**
-     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * permet de sortir la couleur qui revient le plus souvant
      */
 
