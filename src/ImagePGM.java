@@ -334,30 +334,28 @@ public class ImagePGM extends Image{
      */
     public int couleur_preponderante() {
 
-        int couleurPreponderante = 0;
+        HashMap<String, String> listOccuPixels = new HashMap<String, String>();
 
         for (int i = 0; i < this.getSizeX(); i++) {
             for (int j = 0; j < this.getSizeY(); j++) {
-
-                tbl_pixels[i][j].getPixel();
+                if(listOccuPixels.containsKey(Integer.toString(tbl_pixels[i][j].getPixel()))) {
+                    listOccuPixels.put(Integer.toString(tbl_pixels[i][j].getPixel()),Integer.toString(Integer.parseInt(listOccuPixels.get(Integer.toString(tbl_pixels[i][j].getPixel())))+1));
+                } else {
+                    listOccuPixels.put(Integer.toString(tbl_pixels[i][j].getPixel()),"1");
+                }
             }
         }
-
-        Map<String, String> listOccuPixels = new HashMap<String, String>();
-
-
-        //array = {'192':0,'191':0, '255':0}
-//
-//
-        //for i in [192,192,192,192,191,255,255]:
-        //array[str(i)]=array[str(i)]+1
-//
-        //for i in array:
-        //print(array[i])
-
-
-        return couleurPreponderante;
-
+        int min =0;
+        int min2=0;
+        for (int i = 0; i < this.getSizeX(); i++) {
+            for (int j = 0; j < this.getSizeY(); j++) {
+                if(Integer.parseInt(listOccuPixels.get(Integer.toString(tbl_pixels[i][j].getPixel())))>=min) {
+                    min=Integer.parseInt(listOccuPixels.get(Integer.toString(tbl_pixels[i][j].getPixel())));
+                    min2=tbl_pixels[i][j].getPixel();
+                }
+            }
+        }
+        return min2;
     }
 
 }
