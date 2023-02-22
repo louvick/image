@@ -78,7 +78,7 @@ public class ImagePGM extends Image{
      *
      */
     public void setPixelAt(int x, int y, int value) {
-        this.tbl_pixels[y][x].setPixel(value);
+        this.tbl_pixels[x][y].setPixel(value);
     }
 
     /**
