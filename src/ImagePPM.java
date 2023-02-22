@@ -181,14 +181,15 @@ public class ImagePPM extends Image
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février
-     * @param image
      * @return ImagePPM
      **/
      public void reduire() {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePPM newImage = new ImagePPM();
+
         newImage.create(newWidth, newHeight, super.getMax());
+        newImage.setPixels(this);
 
         for (int y = 0; y < newHeight; y++) {
             for (int x = 0; x < newWidth; x++) {
@@ -208,6 +209,9 @@ public class ImagePPM extends Image
                 newImage.setPixelAt(x,y,averageRed,averageGreen,averageBlue);
             }
         }
+
+        this.create(newWidth, newHeight, 255);
+        this.tbl_pixels = newImage.getPixels().clone();
     }
 
     /**

@@ -8,6 +8,8 @@ public class Main {
         String chemin3 = "sadsadsadd.pgm";
         String chemin2 = "image1.ppm";
         String cheminextraire = "extraire.pgm";
+        String cheminextraire2 = "extraire.ppm";
+
 
         ImageManager im = new ImageManager();
 
@@ -21,6 +23,10 @@ public class Main {
         im.lire(imagegrise,chemin);
         imagegrise.reduire();
         im.ecrire(cheminextraire, imagegrise);
+
+        im.lire(imagecouleur, chemin2);
+        imagecouleur.reduire();
+        im.ecrire(cheminextraire2, imagecouleur);
 /*
         im.lire(imagegrise,chemin);
         im.lire(imagegrise2,chemin);
