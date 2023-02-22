@@ -205,7 +205,6 @@ public class ImagePGM extends Image{
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * @Date 20 février 2023
-     * @param image
      * @return ImagePGM
      *
      */
