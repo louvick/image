@@ -3,7 +3,6 @@
  * Cette classe gère un pixel de type PPM (donc trois valeur par pixel, soit rouge, vert et bleu)
  *
  * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
- * @Date 20 février 2023
  *
  */
 public class PixelPPM {
@@ -17,11 +16,9 @@ public class PixelPPM {
      * Cette méthode est un constructeur d'un pixel avec ses trois valeurs
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param red
-     * @param green
-     * @param blue
-     * @return void
+     * @param red valeur pixel rouge
+     * @param green valeur pixel vert
+     * @param blue valeur pixel bleu
      *
      */
     public PixelPPM(int red,int green,int blue) {
@@ -31,7 +28,6 @@ public class PixelPPM {
     }
 
     /**
-     * @date 2023-02-20
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
      * permet de construire le pixel avec rien comme paramètre
      */
@@ -46,7 +42,6 @@ public class PixelPPM {
      * Cette méthode permet d'avoir la valeur rouge d'un objet pixel
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
      * @return int
      *
      */
@@ -59,9 +54,7 @@ public class PixelPPM {
      * Cette méthode permet de donner une valeur rouge à un pixel
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param red
-     * @return int
+     * @param red valeur pixel rouge
      *
      */
     public void setRed(int red) {
@@ -73,7 +66,6 @@ public class PixelPPM {
      * Cette méthode permet d'avoir la valeur verte d'un objet pixel
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
      * @return int
      *
      */
@@ -86,9 +78,7 @@ public class PixelPPM {
      * Cette méthode permet de donner une valeur verte à un pixel
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param green
-     * @return int
+     * @param green valeur pixel vert
      *
      */
     public void setGreen(int green) {
@@ -100,7 +90,6 @@ public class PixelPPM {
      * Cette méthode permet d'avoir la valeur bleue d'un objet pixel
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
      * @return int
      *
      */
@@ -113,9 +102,7 @@ public class PixelPPM {
      * Cette méthode permet de donner une valeur bleue à un pixel
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param blue
-     * @return int
+     * @param blue valeur pixel bleu
      *
      */
     public void setBlue(int blue) {
@@ -127,14 +114,11 @@ public class PixelPPM {
      * Cette méthode permet de donner trois valeurs, soit rouge vert et bleu à un pixel
      *
      * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
-     * @Date 20 février 2023
-     * @param red
-     * @param green
-     * @param blue
+     * @param red valeur pixel rouge
+     * @param green valeur pixel vert
+     * @param blue valeur pixel bleu
      *
      */
-
-
     public void setColor(int red, int green, int blue){
         setRed(red);
         setGreen(green);
