@@ -29,7 +29,7 @@ public class Image{
      *
      * Cette méthode permet de lire un fichier en recevant son nom
      *
-     * @param fichier
+     * @param fichier passe d'un fichier
      *
      */
     public void lire(String fichier){}
@@ -38,7 +38,7 @@ public class Image{
      *
      * Cette méthode permet de donner la largeur d'une image
      *
-     * @param sizeX
+     * @param sizeX passe d'une grosseur en x
      *
      */
     public void setSizeX(int sizeX) {
@@ -49,7 +49,6 @@ public class Image{
      *
      * Cette méthode permet de récupérer la hauteur d'une image
      *
-     * @Date 20 février 2023
      * @return int
      *
      */
@@ -62,9 +61,7 @@ public class Image{
      *
      * Cette méthode permet de donner la longueur d'une image
      *
-     * @Date 20 février 2023
-     * @param sizeY
-     * @return void
+     * @param sizeY passage d'une grosseur en y
      *
      */
     public void setSizeY(int sizeY) {
@@ -88,7 +85,7 @@ public class Image{
      *
      * Cette méthode permet de donner le max à une image
      *
-     * @param max
+     * @param max passe d'une valeur maximum
      *
      */
     public void setMax(int max) {
@@ -111,7 +108,7 @@ public class Image{
      *
      * Cette méthode permet de donner le type à une image
      *
-     * @param type
+     * @param type passe d'un type
      *
      */
     public void setType(String type) {
