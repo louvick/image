@@ -101,16 +101,15 @@ public class ImageManager {
         }
     }
 
-    /*
+
     public void couleur_preponderante(Image image) {
         if(image instanceof ImagePGM){
             ImagePGM pgmImage = (ImagePGM) image;
-            ((ImagePGM) image).couleur_preponderante();
+            System.out.println(((ImagePGM) image).couleur_preponderante());
         }
         else if(image instanceof ImagePPM){
             ImagePPM ppmImage = (ImagePPM) image;
-            ((ImagePPM) image).couleur_preponderante();
+            System.out.println(((ImagePPM) image).couleur_preponderante());
         }
     }
-    */
 }

@@ -21,8 +21,7 @@ public class Main {
         ImagePPM imagecouleur2 = new ImagePPM();
 
         im.lire(imagegrise,chemin);
-        im.extraire(imagegrise,50,126,97,143);
-        im.ecrire(cheminextraire, imagegrise);
+        im.couleur_preponderante(imagegrise);
 
 /*
         im.lire(imagegrise,chemin);
