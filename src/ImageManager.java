@@ -123,6 +123,17 @@ public class ImageManager {
         }
     }
 
+    /**
+     *
+     * Cette méthode sert à extraire une plus petite image dans l'image mère. Cette méthode dans le manager gère les deux types d'images
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @date 2023-02-20
+     * @param image
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     */
     public void extraire(Image image, int x1, int y1, int x2, int y2) {
         if(image instanceof ImagePGM){
             ImagePGM pgmImage = (ImagePGM) image;
@@ -134,6 +145,13 @@ public class ImageManager {
         }
     }
 
+    /**
+     *
+     * Cette méthode va réduire l'image par 4. Ceci veut dire qu'il va prendre des bloques de pixel (2 x 2) calculer la moyenne de la valeur des pixels et en faire une (un pixel avec les moyennes comme valeur
+     * @author Antoine Plouffe, Louvick D'Arcy, Jean-François Labbé
+     * @date 2023-02-20
+     * @param image
+     */
     public void reduire(Image image) {
         if(image instanceof ImagePGM){
             ImagePGM pgmImage = (ImagePGM) image;
