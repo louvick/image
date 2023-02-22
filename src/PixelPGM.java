@@ -14,7 +14,8 @@ public class PixelPGM {
 *  Constructeur par défaut avec aucun paramètre
 */
     PixelPGM(){
-        pixel = 0;
+
+        this.pixel = 0;
     }
 
     /**
@@ -57,6 +58,7 @@ public class PixelPGM {
      *
      */
     public void setPixel(int pixel){
+
         this.pixel = pixel;
     }
 }
