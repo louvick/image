@@ -141,7 +141,8 @@ public class ImagePPM extends Image
      *
      * Cette méthode va ouvrir un fichier et écrire 
      *
-     *
+     * @param fichier nom du fichier
+     * @exception FileNotFoundException Ne trouve pas le fichier
      */
     public void ecrire(String fichier) throws FileNotFoundException {
 
