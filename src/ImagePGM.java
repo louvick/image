@@ -367,6 +367,7 @@ public class ImagePGM extends Image{
                 }
             }
         }
+
         return min2;
     }
 
