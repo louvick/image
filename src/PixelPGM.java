@@ -14,7 +14,7 @@ public class PixelPGM {
 *  Constructeur par défaut avec aucun paramètre
 */
     PixelPGM(){
-        pixel = 0;
+        this.pixel = 0;
     }
 
     /**

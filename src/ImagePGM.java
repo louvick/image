@@ -201,12 +201,13 @@ public class ImagePGM extends Image{
      * @return ImagePGM
      *
      */
-    public ImagePGM reduire(ImagePGM image) {
+    public ImagePGM reduire() {
         int newWidth = this.getSizeX() / 2;
         int newHeight = this.getSizeY() / 2;
         ImagePGM newImage = new ImagePGM();
-        newImage.setPixels(this);
+
         newImage.create(newWidth, newHeight, super.getMax());
+        newImage.setPixels(this);
 
         for (int y = 0; y < newHeight; y++) {
             for (int x = 0; x < newWidth; x++) {
